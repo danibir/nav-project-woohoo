@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-</head>
-<body>
-    <h1>Not any content</h1>
+<%- include('./partials/head.ejs') %>
+
     <%- include('./partials/navigation.ejs') %>
-</body>
-</html>
+
+    <div class="indexLogo">
+        <img src="/img/nav-logo.png" alt="nav logo">
+    </div>
+
+
+    <%- include('./partials/searchfield.ejs') %>
+
+<%- include('./partials/foot.ejs') %>
