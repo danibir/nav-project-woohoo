@@ -1,0 +1,119 @@
+* {
+    --white: #F4F4F4;
+    --dark-red: #5C0000;
+    --red: #C30000;
+    --dark-blue: #0068C5;
+    --blue: #CCE3F1;
+    --black: #000000;
+}
+
+body {
+    width: 100%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: var(--black) 1px solid;
+}
+
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar p {
+    font-size: 1.3rem;
+    color: var(--dark-blue);
+}
+
+.navLogo img {
+    height: 30px;
+    margin-left: 20px;
+}
+
+.navbarLinks {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.navbarLinks img {
+    height: 30px;
+    width: 30px;
+}
+
+.findDataLink {
+    display: flex;
+    align-items: center;
+}
+
+.menuBttn {
+    display: flex;
+    align-items: center;
+    margin: 0 30px;
+}
+
+.menuBttn img {
+    margin: 5px;
+}
+
+.navbarLinks button {
+    background-color: transparent;
+    border: none;
+}
+
+.navbarLinks button:hover {
+    cursor: pointer;
+}
+
+/* INDEX page */
+
+.indexLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.indexLogo img {
+    width: 450px;
+}
+
+/* search field */
+
+.searchField {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.searchInput {
+    display: flex;
+    align-items: center;
+}
+
+.searchInput input {
+    background-color: var(--blue);
+    border: var(--dark-blue) 2px solid;
+    border-radius: 10px;
+    width: 450px;
+    height: 60px;
+}
+
+.searchInput button {
+    width: 100px;
+    height: 60px;
+    background-color: var(--red);
+    border: var(--dark-red) 2px solid;
+    border-radius: 10px;
+    margin: 0 15px;
+}
+
+.searchInput button img {
+    width: 30px;
+}

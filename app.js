@@ -7,6 +7,7 @@ import router from './routers/main_router.js';
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 app.use(express.json());
 
