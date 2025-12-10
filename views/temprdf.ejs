@@ -1,3 +1,4 @@
+
 <%- include('./partials/head.ejs') %>
 
 <body>
@@ -6,5 +7,11 @@
     <h1>Rdf fake page</h1>
 
     <%= rdf %>
+    <br>
+    <%= rdf.title.object %>
+    <br>
+    <br>
+    <%= rdf.description.object %>
 </body>
-</html>
+
+<%- include('./partials/foot.ejs') %>
