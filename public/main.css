@@ -11,6 +11,7 @@ body {
     width: 100%;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--white);
 }
 
 /* NAVBAR */
@@ -126,17 +127,22 @@ body {
 }
 
 .dropdownContent {
-    display: none;
+    display: block; /* Always block for animation */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
     position: fixed;
     left: 0;
     right: 0;
-    top: 60px; /* Adjust this value to match your navbar height */
+    top: 78px;
     width: 100vw;
     background-color: var(--white);
     box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
     padding: 24px 0;
     z-index: 1;
     text-align: center;
+    transform: translateY(-10px);
 }
 
 .grid-content {
@@ -179,5 +185,6 @@ body {
 }
 
 .menuDropdown.active .dropdownContent {
-    display: block;
+    max-height: 1000px; /* Large enough for your content */
+    opacity: 1;
 }
