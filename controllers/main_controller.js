@@ -10,7 +10,7 @@ const findData_render = (req, res) => {
 }
 
 const rdf_render = async (req,res)=>{
-    const rdfinfo = await rdf.getQuadRDF("https://fellesdatakatalog.digdir.no/datasets/3b6cb3a2-8211-3564-a576-4047c6f614ab")
+    const rdfinfo = await rdf.getRDF("https://fellesdatakatalog.digdir.no/datasets/3b6cb3a2-8211-3564-a576-4047c6f614ab")
     res.render("tempRDF", { rdf: rdfinfo })
 }
 
