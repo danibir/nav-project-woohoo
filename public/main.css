@@ -202,6 +202,14 @@ body {
     display: none;
 }
 
+.downArrow {
+    transition: transform 0.3s ease;
+}
+
+.downArrow.rotated {
+    transform: rotate(180deg);
+}
+
 /*Dropdown menu*/
 
 .menuDropdown {
