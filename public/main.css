@@ -117,3 +117,67 @@ body {
 .searchInput button img {
     width: 30px;
 }
+
+/*Dropdown menu*/
+
+.menuDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownContent {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 60px; /* Adjust this value to match your navbar height */
+    width: 100vw;
+    background-color: var(--white);
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
+    padding: 24px 0;
+    z-index: 1;
+    text-align: center;
+}
+
+.grid-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 100px;
+    padding: 24px 60px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.grid-content > div {
+    text-align: left;
+}
+
+.dropdownLinks {
+    color: var(--dark-blue);
+    list-style: none;
+    text-align: left;
+    margin: 15px 0 0 0;
+    padding: 0;
+}
+
+.dropdownLinks li {
+    margin-bottom: 12px;
+}
+
+.dropdownLinks a {
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+
+.dropdownLinks a:hover {
+    opacity: 0.7;
+}
+
+.menu-title {
+    margin: 0;
+    padding: 0;
+}
+
+.menuDropdown.active .dropdownContent {
+    display: block;
+}
