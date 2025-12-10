@@ -1,5 +1,127 @@
 <%- include('./partials/head.ejs') %>
 
-    <%- include('./partials/navigation.ejs') %>
+    <%- include('./partials/navigationWsearch.ejs') %>
+
+    <section class="findDataPage">
+        <ul class="">
+            <li>
+                <a href="/findData">Alle</a>
+            </li>
+            <li>
+                <a href="/">Datasett</a>
+            </li>
+            <li>
+                <a href="/">API-er</a>
+            </li>
+            <li>
+                <a href="/">Begreper</a>
+            </li>
+        </ul>
+
+        <div class="sortingField">
+            <label for="sorting">Søket ditt ga ... treff:</label>
+            <select name="sorting" id="">
+                <option value="" selected disabled hidden>Sorter</option>
+                <option value="">Sist publisert</option>
+                <option value="">Relevanse</option>
+                <option value="">A - Å</option>
+                <option value="">Å - A</option>
+            </select>
+        </div>
+
+        <div class="activeFilters">
+            <button>Nullstill alle filtre</button>
+        </div>
+
+        <section class="chooseFilters">
+            <div class="filterBox">
+                <h2>Tema:</h2>
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Arbeid</h4>                    
+                    </div>
+                    <div>
+                        <img src="/img/icons/downArrow.png" alt="down arrow">                    
+                    </div>
+                </div>
+                <div class="filterOption secondaryOption hidden">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Arbeidsliv</h4>                    
+                    </div>
+                </div>
+                <div class="filterOption secondaryOption hidden">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Permisjonsordninger</h4>                    
+                    </div>
+                </div>
+
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Familie og Barn</h4>                    
+                    </div>
+                    <div>
+                        <img src="/img/icons/downArrow.png" alt="down arrow">
+                    </div>
+                </div>
+
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Sosiale Tjenester</h4>                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="filterBox">
+                <h2>EU-Tema:</h2>
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Forvaltning og offentlig sektor</h4>                        
+                    </div>
+                </div>
+
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Befolkning og samfunn</h4>                        
+                    </div>
+                </div>
+
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Transport</h4>                        
+                    </div>
+                </div>
+
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Økonomi og finans</h4>                        
+                    </div>
+                </div>
+
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Miljø</h4>                        
+                    </div>
+                </div>
+
+                <div class="filterOption">
+                    <div class="filterTitle">
+                        <img src="/img/icons/uncheckedBox.png" alt="unchecked box">
+                        <h4>Internasjonale Temaer</h4>                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
 
 <%- include('./partials/foot.ejs') %>
