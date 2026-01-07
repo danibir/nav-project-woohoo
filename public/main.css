@@ -152,6 +152,37 @@ body {
     align-items: center;
 }
 
+/* search filter */
+
+.searchFilter {
+    display: flex;
+    margin: 0;
+    padding-inline-start: 0;
+}
+
+.searchFilter li {
+    list-style-type: none;
+    margin: 20px;
+    margin-top: 10px;
+}
+
+.searchFilter a {
+    background-color: var(--red);
+    padding: 0 30px;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.active a {
+    background-color: var(--white);
+    color: var(--black);
+    padding: 11px 30px;
+    border: var(--black) 1px solid;
+    border-top: none;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
 /* results */
 
 /* FILTERS */
