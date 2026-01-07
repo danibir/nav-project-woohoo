@@ -3,7 +3,7 @@ const N3 = require('n3')
 
 
 // pulls rdf data from rdf link into an object
-const getRDF = async (url) =>
+const getRDF = async (url) => // * IMPORTANT | url parameter is the rdf url, not the webpage link
 {
 
     
