@@ -152,9 +152,104 @@ body {
     align-items: center;
 }
 
-/* results */
+/* search filter */
+
+.searchFilter {
+    display: flex;
+    margin: 0;
+    padding-inline-start: 0;
+}
+
+.searchFilter li {
+    list-style-type: none;
+    margin: 20px;
+    margin-top: 10px;
+}
+
+.searchFilter a {
+    background-color: var(--red);
+    padding: 0 30px;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.activeSort a {
+    background-color: var(--white);
+    color: var(--black);
+    padding: 11px 30px;
+    border: var(--black) 1px solid;
+    border-top: none;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* sorting */
+
+.sortingField {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 0 30px;
+    color: var(--white);
+}
+
+.sortingField label {
+    font-size: 20px;
+}
+
+.sorting {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--white);
+    background-image: url("img/icons/downArrow.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    border: var(--dark-blue) 2px solid;
+    border-radius: 10px;
+    color: var(--dark-blue);
+    padding: 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.sortingField option {
+    background-color: var(--white);
+}
 
 /* FILTERS */
+
+.activeFilters {
+    width: fit-content;
+}
+
+.activeFilters button {
+    background-color: var(--white);
+    border: var(--dark-blue) 2px solid;
+    border-radius: 10px;
+    width: 324px;
+    padding: 0 10px;
+    margin: 0 20px;
+    text-align: left;
+}
+
+.activeFilters h2 {
+    color: var(--dark-blue);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin: 0;
+}
+
+.activeFilters button:hover {
+    cursor: pointer;
+}
+
+.chooseFilters {
+    width: fit-content;
+}
 
 .filterBox {
     background-color: var(--white);
