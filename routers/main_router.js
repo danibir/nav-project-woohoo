@@ -1,11 +1,12 @@
-import express from 'express';
+const express = require('express')
 
-import controller from '../controllers/main_controller.js';
+const controller = require('../controllers/main_controller.js')
 
-const router = express.Router();
+const router = express.Router()
 
-router.get("/",controller.index_render);
-router.get("/findData",controller.findData_render);
+router.get("/",controller.index_render)
+router.get("/findData",controller.findData_render)
 router.get("/rdf",controller.rdf_render)
+router.get("/info:subject",controller.datapage_render)
 
-export default router;
+module.exports = router

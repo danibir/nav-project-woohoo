@@ -9,6 +9,7 @@
 
 body {
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--white);
@@ -373,4 +374,10 @@ body {
 .menuDropdown.active .dropdownContent {
     max-height: 1000px; /* Large enough for your content */
     opacity: 1;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+
 }
