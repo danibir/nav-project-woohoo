@@ -6,13 +6,23 @@ const addToDb = async (url) => {
     await db.connectToMongoDb()
     const rdfData = await rdf.getRDF(url)
     const isOccupied = await NavData.exists({ link: url })
+    console.log(rdfData.title.object)
+    let titles = {}
+    let title
+    for (title of rdfData.title.object)
+    {
+        const lang = title.substring(title.length - 3, title.length)
+        title = title.substring(1, title.length - 4)
+        console.log([title, lang])
+        titles[lang] = title
+    }
     console.log(`( ${rdfData.title.object} )`)
     if (!isOccupied)
     {
         console.log('Adding url...')
         const obj = {
-            name: rdfData.title.object[0],
-            link: url
+            title: titles,
+            url: url
         }
         let newObj = new NavData(obj)
         console.log(newObj)
@@ -25,7 +35,7 @@ const addToDb = async (url) => {
 }
 
 //example list
-/*
+
 link_list = [
     "https://fellesdatakatalog.digdir.no/datasets/8c6507ff-ec80-3291-9720-97bdd89bd536",
     "https://fellesdatakatalog.digdir.no/datasets/4e52bab6-08f7-38a7-bb99-6f630ec273ee",

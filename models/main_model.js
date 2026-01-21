@@ -2,16 +2,16 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const dataSchema = new Schema({
-  name: {
-    type: String,
+  title: {
+    type: Object,
     required: true
   },
-  link: {
+  url: {
     type: String,
     required: true
   }
 });
 
-const navData = mongoose.model("navDatas", dataSchema)
+const navData = mongoose.model("navDatas", dataSchema, "navdata")
 
 module.exports = navData

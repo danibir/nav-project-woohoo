@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const os = require('os')
+const db = require('./handlers/mongoDbHandler')
 
 const router = require('./routers/main_router')
 
@@ -13,8 +14,11 @@ app.use(express.json())
 
 app.use(express.urlencoded({ extended: true }))
 
-app.use(router)
+db.connectToMongoDb()
+.then(()=>{
+  app.use(router)
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000 and on', os.hostname())
+  app.listen(3000, () => {
+    console.log('Server is running on port 3000 and on', os.hostname())
+  })
 })

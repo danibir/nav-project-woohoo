@@ -22,17 +22,19 @@ const datapage_render = async (req, res) =>
     let subject = req.params.subject
     subject = subject.slice(1)
     console.log(subject)
-    Rdf.findOne({ name: subject })
+    Rdf.find({ "title.@nb": subject })
     .then(async(resu)=>{
         if (!resu)
         {
+            console.log(resu)
             res.redirect('/rdf')
         }
         else
         {
-            const rdfdata = await rdf.getRDF(resu.link)
+            console.log(resu[0])
+            const rdfdata = await rdf.getRDF(resu[0].url)
             console.log(rdfdata)
-            res.render("data-page", { rdfdata })
+            res.render("data-page", { rdfdata }) //needs a ejs page
         }
     })
     .catch((err)=>{
