@@ -4,8 +4,29 @@ const db = require('../handlers/mongoDbHandler.js')
 const Rdf = require('../models/main_model.js')
 
 
-const index_render = (req,res)=>{
+const index_render = (req,res) => { 
     res.render("index")
+}
+
+const details_render = async (req, res) => {
+  try {
+    const name = req.params.name;
+
+    const rdfData = await rdfobj.printOutInfo(name);
+
+    if (!rdfData) {
+      return res.status(404).render('404');
+    }
+
+    res.render('details', {
+      name,
+      rdfData
+    });
+
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 
 const findData_render = (req, res) => {
@@ -45,5 +66,6 @@ module.exports = {
     index_render,
     findData_render,
     rdf_render,
-    datapage_render
+    datapage_render,
+    details_render,
 }
