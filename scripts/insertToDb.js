@@ -11,7 +11,7 @@ const addToDb = async (url) => {
     let title
     for (title of rdfData.title.object)
     {
-        const lang = title.substring(title.length - 2, title.length)
+        const lang = title.substring(title.length - 3, title.length)
         title = title.substring(1, title.length - 4)
         console.log([title, lang])
         titles[lang] = title
