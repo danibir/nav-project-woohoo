@@ -8,27 +8,6 @@ const index_render = (req,res) => {
     res.render("index")
 }
 
-const details_render = async (req, res) => {
-  try {
-    const name = req.params.name;
-
-    const rdfData = await rdfobj.printOutInfo(name);
-
-    if (!rdfData) {
-      return res.status(404).render('404');
-    }
-
-    res.render('details', {
-      name,
-      rdfData
-    });
-
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
-
 const findData_render = (req, res) => {
     res.render("findData");
 }
@@ -38,27 +17,28 @@ const rdf_render = async (req,res)=>{
     res.render("tempRDF", { rdf: rdfinfo })
 }
 
-const datapage_render = async (req, res) =>
+const info_render = async (req, res) =>
 {
-    let subject = req.params.subject
-    subject = subject.slice(1)
+    let subject = req.params.name
     console.log(subject)
-    Rdf.findOne({ name: subject })
+    Rdf.find({ "title.nb": { $regex: subject, $options: "i" } })
     .then(async(resu)=>{
         if (!resu)
         {
+            console.log(resu)
             res.redirect('/rdf')
         }
         else
         {
-            const rdfdata = await rdf.getRDF(resu.link)
+            console.log(resu[0])
+            const rdfdata = await rdf.getRDF(resu[0].url)
             console.log(rdfdata)
-            res.render("data-page", { rdfdata })
+            res.render("info", { title: subject, rdfdata });
         }
     })
     .catch((err)=>{
         console.log(`datapage error: ${err}`)
-        res.redirect('/rdf')
+        res.redirect('/rdf');
     })
 }
 
@@ -66,6 +46,5 @@ module.exports = {
     index_render,
     findData_render,
     rdf_render,
-    datapage_render,
-    details_render,
+    info_render,
 }
