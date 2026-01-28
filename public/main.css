@@ -385,6 +385,7 @@ section {
 }
 
 footer {
+    background-color: #eeeeee;
   color: var(--dark-blue);
   margin-top: 5px;
 }
