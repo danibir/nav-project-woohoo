@@ -4,12 +4,18 @@ const db = require('../handlers/mongoDbHandler.js')
 const Rdf = require('../models/main_model.js')
 
 
-const index_render = (req,res)=>{
+const index_render = (req,res) => { 
     res.render("index")
 }
 
-const findData_render = (req, res) => {
-    res.render("findData");
+const findData_render = async (req, res) => {
+    const dbData = await Rdf.find();
+
+    const rdfList = await Promise.all(
+        dbData.map(item => rdf.getRDF(item.url))
+    );
+
+    res.render("findData", {rdf, rdfList });
 }
 
 const rdf_render = async (req,res)=>{
@@ -17,12 +23,11 @@ const rdf_render = async (req,res)=>{
     res.render("tempRDF", { rdf: rdfinfo })
 }
 
-const datapage_render = async (req, res) =>
+const info_render = async (req, res) =>
 {
-    let subject = req.params.subject
-    subject = subject.slice(1)
+    let subject = req.params.name
     console.log(subject)
-    Rdf.find({ "title.@nb": subject })
+    Rdf.find({ "title.nb": { $regex: subject, $options: "i" } })
     .then(async(resu)=>{
         if (!resu)
         {
@@ -34,12 +39,12 @@ const datapage_render = async (req, res) =>
             console.log(resu[0])
             const rdfdata = await rdf.getRDF(resu[0].url)
             console.log(rdfdata)
-            res.render("data-page", { rdfdata }) //needs a ejs page
+            res.render("info", { title: subject, rdfdata });
         }
     })
     .catch((err)=>{
         console.log(`datapage error: ${err}`)
-        res.redirect('/rdf')
+        res.redirect('/rdf');
     })
 }
 
@@ -47,5 +52,5 @@ module.exports = {
     index_render,
     findData_render,
     rdf_render,
-    datapage_render
+    info_render,
 }

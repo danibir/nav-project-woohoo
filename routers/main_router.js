@@ -9,6 +9,6 @@ const {auth}= require("../middleware/auth_middleware.js")
 router.get("/",controller.index_render)
 router.get("/findData",controller.findData_render)
 router.get("/rdf",controller.rdf_render)
-router.get("/info:subject",controller.datapage_render)
+router.get('/info/:name', controller.info_render);
 
 module.exports = router
