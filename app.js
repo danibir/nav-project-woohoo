@@ -17,12 +17,11 @@ app.use(express.urlencoded({ extended: true }))
 db.connectToMongoDb()
 .then(()=>{
   app.use(router)
+  app.use((req, res) => {
+    res.status(404).render('404');
+});
 
   app.listen(3000, () => {
     console.log('Server is running on port 3000 and on', os.hostname())
   })
 })
-
-app.use((req, res) => {
-    res.status(404).render('404');
-});
