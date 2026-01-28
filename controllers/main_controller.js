@@ -15,7 +15,7 @@ const findData_render = async (req, res) => {
         dbData.map(item => rdf.getRDF(item.url))
     );
 
-    res.render("findData", { rdfList });
+    res.render("findData", {rdf, rdfList });
 }
 
 const rdf_render = async (req,res)=>{

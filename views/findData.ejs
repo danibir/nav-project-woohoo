@@ -132,16 +132,13 @@
             </section>
             
             <section class="dataPreviews">
-                <a href="/info/:name">
-                    <% if(rdfList && rdfList.length > 0) { %>
-                        <% rdfList.forEach(rdf => { console.log(rdf)%>
-                            <%- include('./partials/findDataPreview.ejs', {rdf}) %>
-                        <% }); %>
-                    <% } else { %>
-                        <p>we currently have no data to show</p>
-                    <% } %>
-                </a>
-
+                <% if(rdfList && rdfList.length > 0) { %>
+                    <% rdfList.forEach(rdf => { console.log(rdf)%>
+                        <%- include('./partials/findDataPreview.ejs', {rdf}) %>
+                    <% }); %>
+                <% } else { %>
+                    <p>we currently have no data to show</p>
+                <% } %>
             </section>
         </section>
 
