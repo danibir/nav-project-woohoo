@@ -8,8 +8,14 @@ const index_render = (req,res) => {
     res.render("index")
 }
 
-const findData_render = (req, res) => {
-    res.render("findData");
+const findData_render = async (req, res) => {
+    const dbData = await Rdf.find();
+
+    const rdfList = await Promise.all(
+        dbData.map(item => rdf.getRDF(item.url))
+    );
+
+    res.render("findData", { rdfList });
 }
 
 const rdf_render = async (req,res)=>{
