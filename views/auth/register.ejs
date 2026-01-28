@@ -1,5 +1,15 @@
 <%- include('../partials/head.ejs') %>
+<link rel="stylesheet" href="css/auth.css">
     <%- include('../partials/navigation.ejs') %>
-
+    <form id="sign-up">
+        <label for="username">Brukernavn:</label>
+        <input type="text" name="username" id="username" placeholder="Skriv inn brukernavn..">
+        <label for="passwd">Passord:</label>
+        <input type="password" name="passwd" id="passwd" placeholder="Skriv inn Passord..">
+        <label for="key">Nøkkel:</label>
+        <input type="password" name="key" id="key" placeholder="Skriv inn Nøkkel..">
+        <button type="submit">Sign In</button>
+        <div class="error"></div>
+    </form>
 <script src="script/auth/register.js"></script>
 <%- include('../partials/foot.ejs') %>

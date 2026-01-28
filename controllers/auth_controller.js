@@ -24,7 +24,33 @@ const sign_in = async(req,res)=>{
     }
 }
 
+const sign_up_render = (req,res)=>{
+    try{
+        res.render("auth/register")
+    }catch(err){
+        console.log(err)
+        res.status(500).send({err})
+    }
+}
+
+const sign_up = async(req,res)=>{
+    const {username, passwd, key} = req.body
+    try{
+    if(key === process.env.authKey){
+    const userId = await User.register(username,passwd)
+    res.status(200).json({success:true})
+    }else{
+        throw Error("The Provided Key Is Not Right")
+    }
+    }catch(err){
+        console.log(err)
+        res.status(301).json({err: err.message})
+    }
+}
+
 module.exports = {
     sign_in_render,
-    sign_in
+    sign_in,
+    sign_up_render,
+    sign_up
 };
