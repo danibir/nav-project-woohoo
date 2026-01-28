@@ -1,6 +1,7 @@
 const NavData = require('../models/main_model')
 const db = require('../handlers/mongoDbHandler')
 const rdf = require('../rdf/rdf')
+const scrpt = require('./scripts/script.js')
 
 const addToDb = async (url) => {
     await db.connectToMongoDb()
@@ -11,10 +12,8 @@ const addToDb = async (url) => {
     let title
     for (title of rdfData.title.object)
     {
-        const lang = title.substring(title.length - 3, title.length)
-        title = title.substring(1, title.length - 4)
-        console.log([title, lang])
-        titles[lang] = title
+        const titleob = scrpt.snipLang(title)
+        titles[titleob[1]] = titleob[0]
     }
     console.log(`( ${rdfData.title.object} )`)
     if (!isOccupied)

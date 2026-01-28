@@ -1,5 +1,5 @@
 const N3 = require('n3')
-
+const scrpt = require('../scripts/script')
 
 
 // pulls rdf data from rdf link into an object
@@ -52,15 +52,55 @@ const getRDF = async (url) => // * IMPORTANT | url parameter is the rdf url, not
         const index = q_predi.lastIndexOf('/')
         const prediItem = q_predi.substring(index + 1, q_predi.length)
 
-        //set subject and object
-        if (!obj[prediItem]) // if new predicate (add key, set object)
+        let prediKey = prediItem
+        const keyIndex = prediKey.lastIndexOf('#')
+        prediKey = prediKey.substring(keyIndex + 1, prediKey.length)
+
+        cropList = ["title", "description", "fn", "keyword"]
+        if (cropList.includes(prediKey))
         {
-            obj[prediItem] = { object: [], subject: "" }
-            obj[prediItem].object = [q_objec]
+            q_objec = scrpt.snipLang(q_objec)
+        }
+        
+
+
+        //set subject and object
+        if (!obj[prediKey]) // if new predicate (add key, set object)
+        {
+            //console.log(prediKey) //! uncomment to name every predicate of object
+            if (cropList.includes(prediKey))
+            {
+                obj[prediKey] = { object: {}, subject: "" }
+                obj[prediKey].object[q_objec[1]] = [q_objec[0]]
+            } 
+                else 
+            {
+                obj[prediKey] = { object: [], subject: "" }
+                obj[prediKey].object = [q_objec]
+            }
+
         }
         else // if existing predicate (append object)
-            obj[prediItem].object.push(q_objec)
-        obj[prediItem].subject = q_subje //set subject afterwards
+        {
+            if (cropList.includes(prediKey))
+            {
+                let ogItem = obj[prediKey].object
+                if (ogItem[q_objec[1]])
+                {
+                    ogItem[q_objec[1]].push(q_objec[0])
+                    obj[prediKey].object = ogItem
+                } 
+                else 
+                {
+                    obj[prediKey].object[q_objec[1]] = [q_objec[0]]
+                }
+            }
+            else
+            {
+                obj[prediKey].object.push(q_objec)
+            }
+        }
+        obj[prediKey].subject = q_subje //set subject afterwards
     }
     return obj
 }

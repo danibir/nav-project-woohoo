@@ -22,7 +22,7 @@ const datapage_render = async (req, res) =>
     let subject = req.params.subject
     subject = subject.slice(1)
     console.log(subject)
-    Rdf.find({ "title.@nb": subject })
+    Rdf.find({ "title.nb": subject })
     .then(async(resu)=>{
         if (!resu)
         {
