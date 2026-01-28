@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/danibir/nav-project-woohoo#readme",
   "dependencies": {
+    "argon2": "^0.44.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "mongoose": "^9.0.0",
