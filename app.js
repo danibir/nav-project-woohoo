@@ -22,3 +22,7 @@ db.connectToMongoDb()
     console.log('Server is running on port 3000 and on', os.hostname())
   })
 })
+
+app.use((req, res) => {
+    res.status(404).render('404');
+});

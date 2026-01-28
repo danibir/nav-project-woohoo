@@ -411,6 +411,20 @@ body {
     opacity: 1;
 }
 
+/* 404 */
+
+.errorPage {
+    margin: 20vh auto;
+    text-align: center;
+}
+
+.errorPage h1 {
+    color: var(--red);
+    font-size: 5rem;
+}
+
+/* FOOTER */
+
 footer {
     margin: 0 auto;
     margin-top: auto;
