@@ -43,7 +43,8 @@ link_list = [
     "https://fellesdatakatalog.digdir.no/datasets/3b6cb3a2-8211-3564-a576-4047c6f614ab",
     "https://fellesdatakatalog.digdir.no/datasets/4122e5f2-c3c7-3ecf-afbc-c0299d7a8973",
     "https://fellesdatakatalog.digdir.no/datasets/3b6cb3a2-8211-3564-a576-4047c6f614ab",
-    "https://fellesdatakatalog.digdir.no/datasets/42dc3fe7-46b6-3674-8301-60b6aab84ef5"
+    "https://fellesdatakatalog.digdir.no/datasets/42dc3fe7-46b6-3674-8301-60b6aab84ef5",
+    "https://fellesdatakatalog.digdir.no/datasets/2e028888-8c2b-49ba-8ac0-842f5971356c"
 ]
 
 for (link of link_list)

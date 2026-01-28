@@ -11,6 +11,21 @@
                 <h2>Søk:</h2>
                 <%- include('./partials/searchfield.ejs') %>
             </div>
+
+            <div class="container-results">
+                <h2>Resultat:</h2>
+                <% if (data && data.length > 0) { %>
+                    <ul>
+                        <% data.forEach(item => { %>
+                            <li><a href="<%= item.url %>"><%= item.title.en || item.title.nb %></a></li>
+                        <% }); %>
+                    </ul>
+                <% } else { %>
+                    <% data.forEach(item => { %>
+                        <p><%= item %></p>
+                    <% }); %>
+                <% } %>
+            </div>
         </section>
 
 
