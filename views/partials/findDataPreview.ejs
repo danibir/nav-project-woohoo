@@ -1,25 +1,23 @@
-<% if(rdf) { %>
-
-        <section class="dataPreview">
-            <div class="dataPreviewInfo">
-                <div class="dataPreTitle">
-                    <%= rdf.title.object %>
-                </div>
-                <div class="dataPreType">
-                    <%= rdf.object %>
-                </div>
-                <div class="dataPreInfo">
-                    <%= rdf.description.object %>
-                </div>
-                <div class="dataPreShowMore">
-                    
-                </div>
-                <div class="dataPreFilters">
-                    <%= rdf.object %>
-                </div>
-            </div>
-        </section>
-
-<% } else { %>
-    <p>we currently have no data to show</p>
-<% } %>
+<section class="dataPreview">
+    <div class="dataPreviewInfo">
+        <div class="dataPreTitle">
+            <%= rdf.title.nb %>
+        </div>
+        <br>
+        <div class="dataPreType">
+            <%=  %>
+        </div>
+        <br>
+        <div class="dataPreInfo">
+            <%= rdf.description.nb %>
+        </div>
+        <br>
+        <div class="dataPreShowMore">
+             
+        </div>
+        <br>
+        <div class="dataPreFilters">
+            <%= rdf.keywords %>
+        </div>
+    </div>
+</section>

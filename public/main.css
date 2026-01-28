@@ -132,8 +132,19 @@ body {
 
 .findDataPage {
     width: 100%;
-    height: 100vh;
     background-color: var(--red);
+}
+
+.results {
+    display: flex;
+}
+
+.dataPreview {
+    margin: 20px;
+    padding: 10px;
+    background-color: var(--white);
+    border: var(--dark-blue) 2px solid;
+    border-radius: 20px;
 }
 
 /* search */
