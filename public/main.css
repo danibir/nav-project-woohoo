@@ -1,383 +1,440 @@
 * {
-    --white: #F4F4F4;
-    --dark-red: #5C0000;
-    --red: #C30000;
-    --dark-blue: #0068C5;
-    --blue: #CCE3F1;
-    --black: #000000;
+  --white: #f4f4f4;
+  --dark-red: #5c0000;
+  --red: #c30000;
+  --dark-blue: #0068c5;
+  --blue: #cce3f1;
+  --black: #000000;
 }
 
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--white);
-    background-color: var(--white);
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--white);
+  background-color: var(--white);
+}
+
+section {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 /* NAVBAR */
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: var(--black) 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: var(--black) 1px solid;
 }
 
 .navbar a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .navbar p {
-    font-size: 1.3rem;
-    color: var(--dark-blue);
+  font-size: 1.3rem;
+  color: var(--dark-blue);
 }
 
 .navLogo img {
-    height: 30px;
-    margin-left: 20px;
+  height: 30px;
+  margin-left: 20px;
 }
 
 .navbarLinks {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-right: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-right: 20px;
 }
 
 .navbarLinks img {
-    height: 30px;
-    width: 30px;
+  height: 30px;
+  width: 30px;
 }
 
 .findDataLink {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .menuBttn {
-    display: flex;
-    align-items: center;
-    margin: 0 30px;
+  display: flex;
+  align-items: center;
+  margin: 0 30px;
 }
 
 .menuBttn img {
-    margin: 5px;
+  margin: 5px;
 }
 
 .navbarLinks button {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 }
 
 .navbarLinks button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* INDEX page */
 
 .indexLogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
 }
 
 .indexLogo img {
-    width: 450px;
+  width: 450px;
 }
 
 /* search field */
 
 .searchField {
-    width: 600px;
-    margin: 0 auto;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .searchInput {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .searchInput input {
-    background-color: var(--blue);
-    border: var(--dark-blue) 2px solid;
-    border-radius: 10px;
-    width: 450px;
-    height: 60px;
-    font-size: 1.2rem;
+  background-color: var(--blue);
+  border: var(--dark-blue) 2px solid;
+  border-radius: 10px;
+  width: 450px;
+  height: 60px;
+  font-size: 1.2rem;
 }
 
 .searchInput button {
-    width: 70px;
-    height: 60px;
-    background-color: var(--red);
-    border: var(--dark-red) 2px solid;
-    border-radius: 10px;
-    margin: 0 15px;
+  width: 70px;
+  height: 60px;
+  background-color: var(--red);
+  border: var(--dark-red) 2px solid;
+  border-radius: 10px;
+  margin: 0 15px;
 }
 
 .searchInput button img {
-    width: 30px;
+  width: 30px;
 }
 
 .searchInput button:hover {
-    cursor: pointer;
-    background-color: var(--dark-red);
-    border: var(--red) 2px solid;
+  cursor: pointer;
+  background-color: var(--dark-red);
+  border: var(--red) 2px solid;
 }
 
 /* FIND DATA page */
 
 .findDataPage {
-    width: 100%;
-    height: 100vh;
-    background-color: var(--red);
+  width: 100%;
+  height: 100vh;
+  background-color: var(--red);
 }
 
 /* search */
 
 .navSearch input {
-    height: 45px;
-    width: 350px;
+  height: 45px;
+  width: 350px;
 }
 
 .navSearch button {
-    height: 45px;
-    width: 55px;
+  height: 45px;
+  width: 55px;
 }
 
 .navSearch button img {
-    width: 20px;
-    align-items: center;
+  width: 20px;
+  align-items: center;
 }
 
 /* search filter */
 
 .searchFilter {
-    display: flex;
-    margin: 0;
-    padding-inline-start: 0;
+  display: flex;
+  margin: 0;
+  padding-inline-start: 0;
 }
 
 .searchFilter li {
-    list-style-type: none;
-    margin: 20px;
-    margin-top: 10px;
+  list-style-type: none;
+  margin: 20px;
+  margin-top: 10px;
 }
 
 .searchFilter a {
-    background-color: var(--red);
-    padding: 0 30px;
-    color: var(--white);
-    text-decoration: none;
+  background-color: var(--red);
+  padding: 0 30px;
+  color: var(--white);
+  text-decoration: none;
 }
 
 .activeSort a {
-    background-color: var(--white);
-    color: var(--black);
-    padding: 11px 30px;
-    border: var(--black) 1px solid;
-    border-top: none;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 11px 30px;
+  border: var(--black) 1px solid;
+  border-top: none;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 /* sorting */
 
 .sortingField {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    padding: 0 30px;
-    color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 0 30px;
+  color: var(--white);
 }
 
 .sortingField label {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .sorting {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: var(--white);
-    background-image: url("img/icons/downArrow.png");
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: right center;
-    border: var(--dark-blue) 2px solid;
-    border-radius: 10px;
-    color: var(--dark-blue);
-    padding: 10px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    margin-left: 10px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--white);
+  background-image: url("img/icons/downArrow.png");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  border: var(--dark-blue) 2px solid;
+  border-radius: 10px;
+  color: var(--dark-blue);
+  padding: 10px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 .sortingField option {
-    background-color: var(--white);
+  background-color: var(--white);
 }
 
 /* FILTERS */
 
 .activeFilters {
-    width: fit-content;
+  width: fit-content;
 }
 
 .activeFilters button {
-    background-color: var(--white);
-    border: var(--dark-blue) 2px solid;
-    border-radius: 10px;
-    width: 324px;
-    padding: 0 10px;
-    margin: 0 20px;
-    text-align: left;
+  background-color: var(--white);
+  border: var(--dark-blue) 2px solid;
+  border-radius: 10px;
+  width: 324px;
+  padding: 0 10px;
+  margin: 0 20px;
+  text-align: left;
 }
 
 .activeFilters h2 {
-    color: var(--dark-blue);
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 10px;
-    margin: 0;
+  color: var(--dark-blue);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  margin: 0;
 }
 
 .activeFilters button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .chooseFilters {
-    width: fit-content;
+  width: fit-content;
 }
 
 .filterBox {
-    background-color: var(--white);
-    border: var(--dark-blue) 2px solid;
-    border-radius: 10px;
-    width: 300px;
-    padding: 0 10px;
-    margin: 20px;
+  background-color: var(--white);
+  border: var(--dark-blue) 2px solid;
+  border-radius: 10px;
+  width: 300px;
+  padding: 0 10px;
+  margin: 20px;
 }
 
 .filterBox h2 {
-    color: var(--dark-blue);
-    margin-bottom: 0;
+  color: var(--dark-blue);
+  margin-bottom: 0;
 }
 
 .filterOption {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .filterOption img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .filterOption img:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .filterTitle {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .filterTitle h4 {
-    margin: 10px;
+  margin: 10px;
 }
 
 .secondaryOption {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .downArrow {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .downArrow.rotated {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /*Dropdown menu*/
 
 .menuDropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdownContent {
-    display: block; /* Always block for animation */
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 78px;
-    width: 100vw;
-    background-color: var(--white);
-    box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
-    padding: 24px 0;
-    z-index: 1;
-    text-align: center;
-    transform: translateY(-10px);
+  display: block; /* Always block for animation */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 78px;
+  width: 100vw;
+  background-color: var(--white);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  padding: 24px 0;
+  z-index: 1;
+  text-align: center;
+  transform: translateY(-10px);
 }
 
 .grid-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 100px;
-    padding: 24px 60px;
-    width: fit-content;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 100px;
+  padding: 24px 60px;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .grid-content > div {
-    text-align: left;
+  text-align: left;
 }
 
 .dropdownLinks {
-    color: var(--dark-blue);
-    list-style: none;
-    text-align: left;
-    margin: 15px 0 0 0;
-    padding: 0;
+  color: var(--dark-blue);
+  list-style: none;
+  text-align: left;
+  margin: 15px 0 0 0;
+  padding: 0;
 }
 
 .dropdownLinks li {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .dropdownLinks a {
-    color: var(--dark-blue);
-    text-decoration: underline;
+  color: var(--dark-blue);
+  text-decoration: underline;
 }
 
 .dropdownLinks a:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .menu-title {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .menuDropdown.active .dropdownContent {
-    max-height: 1000px; /* Large enough for your content */
-    opacity: 1;
+  max-height: 1000px; /* Large enough for your content */
+  opacity: 1;
 }
 
 footer {
-    display: flex;
-    justify-content: center;
+  color: var(--dark-blue);
+  margin-top: 5px;
+}
 
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.footer-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--dark-blue);
+}
+
+.footer-section p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: var(--dark-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  padding: 20px;
+  color: var(--dark-blue);
+  font-size: 0.9rem;
 }
