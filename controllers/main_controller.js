@@ -9,7 +9,12 @@ const index_render = (req,res)=>{
 }
 
 const findData_render = async (req, res) => {
-    const rdfList = await Rdf.find();
+    const dbData = await Rdf.find();
+
+    const rdfList = await Promise.all(
+        dbData.map(item => rdf.getRDF(item.url))
+    );
+
     res.render("findData", { rdfList });
 }
 

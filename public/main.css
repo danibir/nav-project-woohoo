@@ -147,6 +147,27 @@ body {
     border-radius: 20px;
 }
 
+.dataPreviews a {
+    text-decoration: none;
+}
+
+.dataPreviewInfo h2 {
+    color: var(--dark-blue);
+}
+
+.dataPreviewInfo {
+    padding: 0 20px;
+}
+
+.dataPreInfo {
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--black);
+    margin: 0;
+    height: fit-content;
+}
+
 /* search */
 
 .navSearch input {
