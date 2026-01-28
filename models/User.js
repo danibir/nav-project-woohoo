@@ -32,7 +32,7 @@ userSchema.statics.register = async(username, passwd)=>{
 }
 
 userSchema.statics.login = async(username, passwd)=>{
-    const user = User.findOne({name:username})
+    const user = await User.findOne({name:username})
     if(user){
     if(await argon2.verify(user.passwd, passwd)){
         return user._id
