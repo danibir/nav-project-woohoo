@@ -1,0 +1,7 @@
+#sign-up, #sign-in{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-content: center;
+    margin: 10vw;
+}
