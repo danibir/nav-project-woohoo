@@ -48,10 +48,12 @@ const info_render = async (req, res) => {
   console.log(subject);
   Rdf.find({ "title.object.nb": { $regex: subject, $options: "i" } })
     .then(async (resu) => {
-      if (!resu) {
+      if (resu.length == 0) {
+        console.log('not found')
         console.log(resu);
-        res.redirect("/rdf");
+        res.redirect("/404");
       } else {
+        console.log('found')
         console.log(resu[0]);
         const rdfdata = await rdf.getRDF(resu[0].url);
         console.log(rdfdata);
