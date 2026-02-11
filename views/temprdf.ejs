@@ -1,15 +1,18 @@
-
 <%- include('./partials/head.ejs') %>
 
     <%- include('./partials/navigation.ejs') %>
 
-    <h1>Rdf fake page</h1>
+        <section>
+            <h1>Rdf fake page</h1>
 
-    <%= rdf %>
-    <br>
-    <%= rdf.title.object %>
-    <br>
-    <br>
-    <%= rdf.description.object %>
-    
-<%- include('./partials/foot.ejs') %>
+            <%= rdf %>
+                <br>
+                <%= rdf.title.object %>
+                    <br>
+                    <br>
+                    <%= rdf.description.object %>
+        </section>
+
+
+
+        <%- include('./partials/foot.ejs') %>
