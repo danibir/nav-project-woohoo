@@ -1,2 +1,4 @@
 <h1><%= title %></h1>
-<p><%= rdfdata.description.object.nb %></p>
+<% for( let item of rdfdata.description.object.nb  ) { %>
+    <p><%= item %></p>
+<% } %>
