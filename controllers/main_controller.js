@@ -5,37 +5,36 @@ const Rdf = require("../models/main_model.js");
 
 const index_render = async (req, res) => {
   try {
-    const query = req.query.search || ""
-    let data = []
+    const query = req.query.search || "";
+    let data = [];
 
     if (query.trim()) {
-      const searchPattern = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+      const searchPattern = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
       data = await Rdf.find({
         $or: [
-          { "title.en": { $regex: searchPattern, $options: "i" } },
-          { "title.nb": { $regex: searchPattern, $options: "i" } },
+          { "title.object.nb": { $regex: searchPattern, $options: "i" } },
+          { "title.object.en": { $regex: searchPattern, $options: "i" } },
         ],
-      })
+      });
     } else {
-      data = await Rdf.find({})
+      data = await Rdf.find({});
     }
 
-    res.render("index", { data })
+    res.render("index", { data });
+    console.log(data);
   } catch (error) {
-    console.error(error)
-    res.status(500).send("Internal Server Error")
+    console.error(error);
+    res.status(500).send("Internal Server Error");
   }
-}
+};
 
 const findData_render = async (req, res) => {
-    const dbData = await Rdf.find()
+  const dbData = await Rdf.find();
 
-    const rdfList = await Promise.all(
-        dbData.map(item => rdf.getRDF(item.url))
-    );
+  const rdfList = await Promise.all(dbData.map((item) => rdf.getRDF(item.url)));
 
-    res.render("findData", {rdf, rdfList })
-}
+  res.render("findData", { rdf, rdfList });
+};
 
 const rdf_render = async (req, res) => {
   const rdfinfo = await rdf.getRDF(
@@ -44,34 +43,30 @@ const rdf_render = async (req, res) => {
   res.render("tempRDF", { rdf: rdfinfo });
 };
 
-const info_render = async (req, res) =>
-{
-    let subject = req.params.name
-    console.log(subject)
-    Rdf.find({ "title.nb": { $regex: subject, $options: "i" } })
-    .then(async(resu)=>{
-        if (!resu)
-        {
-            console.log(resu)
-            res.redirect('/rdf')
-        }
-        else
-        {
-            console.log(resu[0])
-            const rdfdata = await rdf.getRDF(resu[0].url)
-            console.log(rdfdata)
-            res.render("info", { title: subject, rdfdata });
-        }
+const info_render = async (req, res) => {
+  let subject = req.params.name;
+  console.log(subject);
+  Rdf.find({ "title.nb": { $regex: subject, $options: "i" } })
+    .then(async (resu) => {
+      if (!resu) {
+        console.log(resu);
+        res.redirect("/rdf");
+      } else {
+        console.log(resu[0]);
+        const rdfdata = await rdf.getRDF(resu[0].url);
+        console.log(rdfdata);
+        res.render("info", { title: subject, rdfdata });
+      }
     })
-    .catch((err)=>{
-        console.log(`datapage error: ${err}`)
-        res.redirect('/rdf');
-    })
-}
+    .catch((err) => {
+      console.log(`datapage error: ${err}`);
+      res.redirect("/rdf");
+    });
+};
 
 module.exports = {
-    index_render,
-    findData_render,
-    rdf_render,
-    info_render,
-}
+  index_render,
+  findData_render,
+  rdf_render,
+  info_render,
+};
