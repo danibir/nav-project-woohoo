@@ -16,7 +16,6 @@ body {
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--white);
-    background-color: var(--white);
 }
 
 /* NAVBAR */
@@ -139,6 +138,28 @@ body {
   cursor: pointer;
   background-color: var(--dark-red);
   border: var(--red) 2px solid;
+}
+
+.container-results ul {
+  padding-inline-start: 0;
+}
+
+.container-results li {
+  background-color: var(--blue);
+  margin: 20px 0;
+  width: 100vh;
+  height: 50px;
+  list-style-type: none;
+  border-radius: 10px;
+  display: flex;
+}
+
+.container-results a {
+  text-decoration: none;
+  color: var(--dark-blue);
+  align-self: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 50px;
 }
 
 /* FIND DATA page */

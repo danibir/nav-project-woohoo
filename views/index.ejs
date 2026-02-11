@@ -8,7 +8,7 @@
             </div>
 
             <div class="searchField">
-                <h2>Søk:</h2>
+                <label for="search"><h1>Søk:</h1></label>
                 <%- include('./partials/searchfield.ejs') %>
             </div>
 
@@ -17,11 +17,12 @@
                 <% if (data && data.length > 0) { %>
                     <ul>
                         <% data.forEach(item=> { %>
-                            <li><a href="/info/<%= item.title.object.nb[0] %>">
-                                    <%= (item.title.object.nb && item.title.object.nb[0]) || (item.title.object.en &&
-                                        item.title.object.en[0]) %>
-                                </a></li>
-                            <% }); %>
+                            <li><a href="<%= item.url %>">
+                                <h3>
+                                    <%= (item.title.object.nb && item.title.object.nb[0]) || (item.title.object.en && item.title.object.en[0]) %>
+                                </h3>
+                            </a></li>
+                        <% }); %>
                     </ul>
                     <% } else { %>
                         <p>Ingen resultater funnet</p>
