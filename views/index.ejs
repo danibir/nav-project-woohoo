@@ -14,17 +14,18 @@
 
             <div class="container-results">
                 <h2>Resultat:</h2>
-                <% if (data && data.length > 0) { %>
+                <% if (data && data.length> 0) { %>
                     <ul>
-                        <% data.forEach(item => { %>
-                            <li><a href="<%= item.url %>"><%= item.title.object.nb || item.title.object.nb %></a></li>
-                        <% }); %>
+                        <% data.forEach(item=> { %>
+                            <li><a href="<%= item.url %>">
+                                    <%= (item.title.object.nb && item.title.object.nb[0]) || (item.title.object.en &&
+                                        item.title.object.en[0]) %>
+                                </a></li>
+                            <% }); %>
                     </ul>
-                <% } else { %>
-                    <% data.forEach(item => { %>
-                        <p><%= item %></p>
-                    <% }); %>
-                <% } %>
+                    <% } else { %>
+                        <p>Ingen resultater funnet</p>
+                        <% } %>
             </div>
         </section>
 
