@@ -46,7 +46,7 @@ const rdf_render = async (req, res) => {
 const info_render = async (req, res) => {
   let subject = req.params.name;
   console.log(subject);
-  Rdf.find({ "title.nb": { $regex: subject, $options: "i" } })
+  Rdf.find({ "title.object.nb": { $regex: subject, $options: "i" } })
     .then(async (resu) => {
       if (!resu) {
         console.log(resu);
