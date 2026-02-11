@@ -440,7 +440,7 @@ body {
 /* FOOTER */
 
 footer {
-    background-color: #eeeeee;
+  background-color: var(--white);
   color: var(--dark-blue);
   margin-top: 5px;
 }
@@ -454,16 +454,21 @@ footer {
   padding: 40px 20px;
 }
 
+.footer-content .about p {
+  max-width: 25ch;
+}
+
 .footer-section h3 {
   font-size: 1.1rem;
   margin-bottom: 15px;
-  color: var(--dark-blue);
+  color: var(--black);
 }
 
 .footer-section p {
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 10px 0;
+  color: var(--black);
 }
 
 .footer-section ul {
@@ -478,12 +483,11 @@ footer {
 
 .footer-section a {
   color: var(--dark-blue);
-  text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-  color: var(--white);
+  color: var(--dark-red);
   text-decoration: underline;
 }
 
