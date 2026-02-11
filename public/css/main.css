@@ -424,7 +424,21 @@ section {
   opacity: 1;
 }
 
+
+/* 404 */
+
+.errorPage {
+    margin: 20vh auto;
+    text-align: center;
+}
+
+.errorPage h1 {
+    color: var(--red);
+    font-size: 5rem;
+}
+
 /* FOOTER */
+
 footer {
     background-color: #eeeeee;
   color: var(--dark-blue);
@@ -480,15 +494,3 @@ footer {
   color: var(--dark-blue);
   font-size: 0.9rem;
 }
-/* 404 */
-
-.errorPage {
-    margin: 20vh auto;
-    text-align: center;
-}
-
-.errorPage h1 {
-    color: var(--red);
-    font-size: 5rem;
-}
-
