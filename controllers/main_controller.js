@@ -1,27 +1,48 @@
-const rdf = require('../rdf/rdf.js')
-const rdfobj = require('../rdf/getRDFobject.js')
-const db = require('../handlers/mongoDbHandler.js')
-const Rdf = require('../models/main_model.js')
+const rdf = require("../rdf/rdf.js");
+const rdfobj = require("../rdf/getRDFobject.js");
+const db = require("../handlers/mongoDbHandler.js");
+const Rdf = require("../models/main_model.js");
 
+const index_render = async (req, res) => {
+  try {
+    const query = req.query.search || ""
+    let data = []
 
-const index_render = (req,res) => { 
-    res.render("index")
+    if (query.trim()) {
+      const searchPattern = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+      data = await Rdf.find({
+        $or: [
+          { "title.en": { $regex: searchPattern, $options: "i" } },
+          { "title.nb": { $regex: searchPattern, $options: "i" } },
+        ],
+      })
+    } else {
+      data = await Rdf.find({})
+    }
+
+    res.render("index", { data })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send("Internal Server Error")
+  }
 }
 
 const findData_render = async (req, res) => {
-    const dbData = await Rdf.find();
+    const dbData = await Rdf.find()
 
     const rdfList = await Promise.all(
         dbData.map(item => rdf.getRDF(item.url))
     );
 
-    res.render("findData", {rdf, rdfList });
+    res.render("findData", {rdf, rdfList })
 }
 
-const rdf_render = async (req,res)=>{
-    const rdfinfo = await rdf.getRDF("https://fellesdatakatalog.digdir.no/datasets/3b6cb3a2-8211-3564-a576-4047c6f614ab")
-    res.render("tempRDF", { rdf: rdfinfo })
-}
+const rdf_render = async (req, res) => {
+  const rdfinfo = await rdf.getRDF(
+    "https://fellesdatakatalog.digdir.no/datasets/3b6cb3a2-8211-3564-a576-4047c6f614ab",
+  );
+  res.render("tempRDF", { rdf: rdfinfo });
+};
 
 const info_render = async (req, res) =>
 {
