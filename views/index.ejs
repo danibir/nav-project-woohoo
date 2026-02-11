@@ -17,7 +17,7 @@
                 <% if (data && data.length > 0) { %>
                     <ul>
                         <% data.forEach(item => { %>
-                            <li><a href="<%= item.url %>"><%= item.title.en || item.title.nb %></a></li>
+                            <li><a href="<%= item.url %>"><%= item.title.object.nb || item.title.object.nb %></a></li>
                         <% }); %>
                     </ul>
                 <% } else { %>
