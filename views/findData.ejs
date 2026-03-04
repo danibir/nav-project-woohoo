@@ -1,4 +1,5 @@
 <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/findData.css">
 
     <%- include('./partials/navigationWsearch.ejs') %>
 
@@ -88,7 +89,6 @@
                                 <h4>Sosiale Tjenester</h4>
                             </label>
                         </div>
-                    </div>
 
                     <div class="filterBox">
                         <h2>EU-Tema:</h2>
@@ -139,20 +139,21 @@
                                 <h4>Internasjonale Temaer</h4>
                             </label>
                         </div>
-                    </div>
+                    </section>
+                </section>
+
+                <section class="dataPreviews">
+                    <% if(rdfList && rdfList.length> 0) { %>
+                        <% rdfList.forEach(rdf=> { console.log(rdf)%>
+                            <%- include('./partials/findDataPreview.ejs', {rdf}) %>
+                                <% }); %>
+                                    <% } else { %>
+                                        <p>we currently have no data to show</p>
+                                        <% } %>
                 </section>
             </section>
-            
-            <section class="dataPreviews">
-                <% if(rdfList && rdfList.length > 0) { %>
-                    <% rdfList.forEach(rdf => { console.log(rdf)%>
-                        <%- include('./partials/findDataPreview.ejs', {rdf}) %>
-                    <% }); %>
-                <% } else { %>
-                    <p>we currently have no data to show</p>
-                <% } %>
-            </section>
-        </section>
 
-        <%- include('./partials/foot.ejs') %>
-    </section>
+            <script src="/script/frontend.js"></script>
+
+            <%- include('./partials/foot.ejs') %>
+        </section>
