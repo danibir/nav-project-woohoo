@@ -1,25 +1,31 @@
+//Requirered Modules
 const express = require('express')
 const mongoose = require('mongoose')
 const cookieParser = require("cookie-parser");
-const os = require('os')
+const os = require('os');
+const app = express()
+require("dotenv").config();
 
+//Handlers
 const db = require('./handlers/mongoDbHandler')
 
+//Routes
 const default_router = require('./routers/main_router')
 const auth_router = require("./routers/auth_router")
 const admin_router = require("./routers/admin_router")
 
+//Middleware
 const auth = require('./middleware/auth_middleware')
 
-const app = express()
-
-require("dotenv").config();
+//Options config
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 
+
+//Connecting to MongoDb and Starting server!!
 db.connectToMongoDb()
 .then(()=>{
   app.use(auth.authCheck)

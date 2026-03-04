@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+
  async function connectToMongoDb() {
     try{
         await mongoose.connect("mongodb://10.12.14.178:27017/", {dbName: "navData"});
