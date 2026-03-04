@@ -12,30 +12,7 @@ document.addEventListener('click', function(event) {
 });
 
 // Filters
-const checkboxes = document.querySelectorAll('.checkbox');
 const arrows = document.querySelectorAll('.downArrow');
-
-checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('click', () => {
-        const isChecked = checkbox.src.includes("checkbox.png");
-
-        checkbox.src = isChecked
-            ? "/img/icons/uncheckedBox.png"
-            : "/img/icons/checkbox.png";
-
-        checkbox.alt = isChecked
-            ? "unchecked box"
-            : "checked box";
-
-        checkbox.style.width = isChecked
-            ? "30px"
-            : "20px";
-
-        checkbox.style.margin = isChecked
-            ? ""
-            : "0 5px"
-    });
-});
 
 arrows.forEach(arrow => {
     arrow.addEventListener('click', (e) => {
