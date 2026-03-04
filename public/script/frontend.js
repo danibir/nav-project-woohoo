@@ -22,6 +22,18 @@ checkboxes.forEach(checkbox => {
         checkbox.src = isChecked
             ? "/img/icons/uncheckedBox.png"
             : "/img/icons/checkbox.png";
+
+        checkbox.alt = isChecked
+            ? "unchecked box"
+            : "checked box";
+
+        checkbox.style.width = isChecked
+            ? "30px"
+            : "20px";
+
+        checkbox.style.margin = isChecked
+            ? ""
+            : "0 5px"
     });
 });
 

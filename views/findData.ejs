@@ -19,7 +19,7 @@
         </ul> 
 
         <div class="sortingField">
-            <label for="sorting">Søket ditt ga ... treff:</label>
+            <label for="sorting">Søket ditt ga <%= rdfList.length %> treff:</label>
             <select name="sorting" class="sorting" id="sorting">
                 <option value="" selected disabled hidden>Sorter</option>
                 <option value="">Sist publisert</option>
@@ -39,93 +39,105 @@
                     <div class="filterBox">
                         <h2>Tema:</h2>
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Arbeid</h4>                    
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Arbeid</h4>
+                            </label>
                             <div>
                                 <img class="downArrow" src="/img/icons/downArrow.png" alt="down arrow">                    
                             </div>
                         </div>
                         <div class="filterOption secondaryOption hidden">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Arbeidsliv</h4>                    
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Arbeidsliv</h4>
+                            </label>
                         </div>
                         <div class="filterOption secondaryOption hidden">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Permisjonsordninger</h4>                    
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Permisjonsordninger</h4>
+                            </label>
                         </div>
 
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Familie og Barn</h4>                    
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Familie og Barn</h4>
+                            </label>
                             <div>
                                 <img class="downArrow" src="/img/icons/downArrow.png" alt="down arrow">
                             </div>
                         </div>
                         <div class="filterOption secondaryOption hidden">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Arbeidsliv</h4>                    
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Foreldre og Foresatte</h4>
+                            </label>
                         </div>
 
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Sosiale Tjenester</h4>                        
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Sosiale Tjenester</h4>
+                            </label>
                         </div>
                     </div>
 
                     <div class="filterBox">
                         <h2>EU-Tema:</h2>
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Forvaltning og offentlig sektor</h4>                        
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Forvaltning og offentlig sektor</h4>
+                            </label>
                         </div>
 
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Befolkning og samfunn</h4>                        
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Befolkning og Samfunn</h4>
+                            </label>
                         </div>
 
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Transport</h4>                        
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Transport</h4>
+                            </label>
                         </div>
 
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Økonomi og finans</h4>                        
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Økonomi og Finans</h4>
+                            </label>
                         </div>
 
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Miljø</h4>                        
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Miljø</h4>
+                            </label>
                         </div>
 
                         <div class="filterOption">
-                            <div class="filterTitle">
-                                <img class="checkbox" src="/img/icons/uncheckedBox.png" alt="unchecked box">
-                                <h4>Internasjonale Temaer</h4>                        
-                            </div>
+                            <label class="filterTitle">
+                                <input type="checkbox" class="realCheckbox">
+                                <span class="customCheckbox"></span>
+                                <h4>Internasjonale Temaer</h4>
+                            </label>
                         </div>
                     </div>
                 </section>
