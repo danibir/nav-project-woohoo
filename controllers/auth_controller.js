@@ -1,9 +1,12 @@
+//Required Models
 const User = require("../models/User.js");
-
 const jwt = require("jsonwebtoken")
 
+//Variables
 const maxValidDate = 24*60*60
 
+
+//Controllers
 const signJWt = (id)=>{
     return jwt.sign({id}, process.env.secret, {
         expiresIn:maxValidDate

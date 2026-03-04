@@ -1,8 +1,15 @@
+//RDF functions
 const rdf = require("../rdf/rdf.js");
 const rdfobj = require("../rdf/getRDFobject.js");
-const db = require("../handlers/mongoDbHandler.js");
+
+//Models
 const Rdf = require("../models/main_model.js");
 
+//Handlers
+const db = require("../handlers/mongoDbHandler.js");
+
+
+//controllers
 const index_render = async (req, res) => {
   try {
     const query = req.query.search || "";

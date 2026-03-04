@@ -4,6 +4,8 @@ const router = express.Router()
 
 const auth = require("../middleware/auth_middleware.js")
 
+
+//Routes
 router.use('/', controller.index_get)
 
 module.exports = router
