@@ -1,6 +1,19 @@
 <%- include('./partials/head') %>
 <%- include('./partials/navigation') %>
-<div>
-    
+<div class="center flexcol">
+    <div class="flexrow">
+        <div class="flexcol">
+            <p>blahblahblah</p>        
+            <a href="/admin/create">Lag ny</a>
+        </div>
+        <div class="flexcol">
+            <%- include('./partials/searchField') %>
+            <section> <!--list-->
+                <% for( item of rdfdata ) { %>
+                    <%- include('./partials/adminDataPreview', { rdf: item }) %>
+                <% } %>
+            </section>
+        </div>
+    </div>
 </div>
 <%- include('./partials/foot.ejs') %>
