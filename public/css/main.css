@@ -480,3 +480,23 @@ footer {
   color: var(--dark-blue);
   font-size: 0.9rem;
 }
+
+
+/* DANIEL BLOB */
+
+.center{
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+.flexrow{
+  display: flex;
+  flex-direction: row;
+}
+.flexcol{
+  display: flex;
+  flex-direction: column;
+}
+
+/* DANIEL BLOB END */
