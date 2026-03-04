@@ -12,9 +12,14 @@
 
         <%- include('./menuDropdown.ejs') %>
 
-        <a class="rdfLink" href="/rdf">
-            <p>RDF (temp)</p>
-        </a>
+        <% if (isAuthed) { %>
+            <a class="rdfLink" href="/admin/">
+                <p>Config</p>
+            </a>
+        <% } %>
+            <a class="rdfLink" href="/rdf">
+                <p></p>
+            </a>
     </div>
     
 </nav>
