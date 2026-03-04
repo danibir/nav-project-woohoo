@@ -16,4 +16,15 @@ const auth = async(req,res, next)=>{
     }
 }
 
-module.exports = {auth}
+const authCheck = (req, res, next) => {
+    const token = req.cookies.jwt
+    
+    res.locals.isAuthed = !!token
+    
+    next()
+}
+
+module.exports = {
+    auth,
+    authCheck
+}
