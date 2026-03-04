@@ -12,22 +12,11 @@ document.addEventListener("click", function (event) {
 });
 
 // Filters
-const checkboxes = document.querySelectorAll(".checkbox");
-const arrows = document.querySelectorAll(".downArrow");
+const arrows = document.querySelectorAll('.downArrow');
 
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener("click", () => {
-    const isChecked = checkbox.src.includes("checkbox.png");
-
-    checkbox.src = isChecked
-      ? "/img/icons/uncheckedBox.png"
-      : "/img/icons/checkbox.png";
-  });
-});
-
-arrows.forEach((arrow) => {
-  arrow.addEventListener("click", (e) => {
-    e.preventDefault();
+arrows.forEach(arrow => {
+    arrow.addEventListener('click', (e) => {
+        e.preventDefault();
 
     arrow.classList.toggle("rotated");
 
