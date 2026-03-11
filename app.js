@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const cookieParser = require("cookie-parser");
 const os = require('os');
 const app = express()
+const morgan = require('morgan')
 require("dotenv").config();
 
 //Handlers
@@ -20,9 +21,10 @@ const auth = require('./middleware/auth_middleware')
 //Options config
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use(morgan('dev'))
 app.use(express.json())
-app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
 
 
 //Connecting to MongoDb and Starting server!!

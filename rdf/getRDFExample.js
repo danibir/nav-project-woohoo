@@ -1,5 +1,6 @@
 // * example of how function "getRDF()" works
 
+const { db } = require('../models/main_model.js')
 const rdf = require('../rdf/rdf.js')
 
 // example links 
@@ -15,6 +16,7 @@ const linklist = [
     "https://data.norge.no/nb/datasets/3b6cb3a2-8211-3564-a576-4047c6f614ab/overgang-til-arbeid-og-stonad?tab=rdf" // dummy link, fails to fetch any data    //*/
 ]
 
+
 for (link of linklist)
 {
     console.log()
@@ -23,27 +25,14 @@ for (link of linklist)
 
         console.log("title:")
         console.log(obj.title)
-        console.log("description:")
-        console.log(obj.description)
-        if (Object.values(obj).length && obj.keyword) //remember to make sure the function actually fetches any data, incase of dummy links
-        {
-            
-            console.log("keywords:")
-            console.log(obj.keyword)
-        }
-        if (Object.values(obj).length && obj.fn) //remember to make sure the function actually fetches any data, incase of dummy links
-        {
-            
-            console.log("fn:")
-            console.log(obj.fn)
-        }
+        console.log((!!obj))
         console.log()
         console.log()
         console.log()
     })
 }
 
-
+//*/
 
 
 // * example of how printOutinfo works
@@ -79,3 +68,5 @@ db.connectToMongoDb()
 )
 
 //*/
+
+//rdf.getRDF("https://akdskad")
