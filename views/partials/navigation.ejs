@@ -3,6 +3,11 @@
 <nav class="navbar">
     <a class="navLogo" href="/"><img src="/img/nav-logo.png" alt="nav logo"></a>
 
+    <% if (navItems.includes('search')) { %> 
+        <div class="navSearch">
+            <%- include('./searchfield.ejs') %>
+        </div>
+    <% } %>
 
     <div class="navbarLinks">
         <a class="findDataLink" href="/findData">
@@ -12,7 +17,7 @@
 
         <%- include('./menuDropdown.ejs') %>
 
-        <% if (isAuthed) { %>
+        <% if (navItems.includes('authed')) { %>
             <a class="rdfLink" href="/admin/">
                 <p>Config</p>
             </a>
