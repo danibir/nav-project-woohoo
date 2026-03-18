@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-
+const mid = require('./main_middleware')
 
 //JWT token verification
 const auth = async(req,res, next)=>{
@@ -21,8 +21,11 @@ const auth = async(req,res, next)=>{
 const authCheck = (req, res, next) => {
     const token = req.cookies.jwt
     
-    res.locals.isAuthed = !!token
-    
+    if (!!token)
+    {
+        mid.addNavItems('authed')(req, res, () => {})
+    }
+
     next()
 }
 

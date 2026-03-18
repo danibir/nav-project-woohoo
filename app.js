@@ -16,6 +16,7 @@ const admin_router = require("./routers/admin_router")
 
 //Middleware
 const auth = require('./middleware/auth_middleware')
+const middleware = require('./middleware/main_middleware')
 
 //Options config
 app.set('view engine', 'ejs')
@@ -23,6 +24,7 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
+app.use(middleware.setLocals)
 
 
 //Connecting to MongoDb and Starting server!!
