@@ -499,4 +499,8 @@ footer {
   flex-direction: column;
 }
 
+.adminPreview{
+  background-color: red;
+}
+
 /* DANIEL BLOB END */

@@ -6,6 +6,9 @@ const auth = require("../middleware/auth_middleware.js")
 
 
 //Routes
-router.use('/', controller.index_get)
+router.use(auth.authRestrain)
+router.get('/', controller.index_get)
+router.get('/create', controller.create_get)
+router.post('/create', controller.create_post)
 
 module.exports = router
