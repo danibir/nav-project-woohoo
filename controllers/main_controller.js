@@ -11,6 +11,9 @@ const db = require("../handlers/mongoDbHandler.js");
 
 //controllers
 const index_render = async (req, res) => {
+  if (!req.isDBConnected) {
+    return res.render('index')
+  }
   try {
     const query = req.query.search || "";
     let data = [];
@@ -36,10 +39,12 @@ const index_render = async (req, res) => {
 };
 
 const findData_render = async (req, res) => {
+  
+  if (!req.isDBConnected) {
+    return res.render('findData', { rdf: [], rdfList: []})
+  }
   const dbData = await Rdf.find();
-
   const rdfList = await Promise.all(dbData.map((item) => rdf.getRDF(item.url)));
-
   res.render("findData", { rdf, rdfList });
 };
 

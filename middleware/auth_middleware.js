@@ -29,8 +29,7 @@ const authCheck = (req, res, next) => {
 
 const authRestrain = (req, res, next) => {
     const token = req.cookies.jwt
-    if (!token)
-    {
+    if (!token) {
         return res.status(404).render('404')
     }
     next()

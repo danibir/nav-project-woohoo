@@ -4,12 +4,15 @@ const mongoose = require("mongoose")
 // >localDB = 1
 
 async function connectToMongoDb() {
+    let dbIP = "10.12.14.178"
     if (process.env.localDB && process.env.localDB == true) {
-        connectHelper()
-    } else {
-        connectHelper('10.12.14.178')
+        dbIP = 'localhost'
+    } 
+    try {
+        await connectHelper(dbIP)
+    } catch (err) {
+        throw Error(`error on connect to mongodb: ${err}`)
     }
-    
 }
 async function connectHelper(dbIP = 'localhost', dbName = "navData") {
     try{
@@ -17,7 +20,7 @@ async function connectHelper(dbIP = 'localhost', dbName = "navData") {
         console.log("Connected to mondoDB on collection: ", mongoose.connection.name);
 
     }catch(err){
-        console.log("Error on mongoDbHandler on path /handlers/mongoDbHandler.js. Error: ", err)
+        throw new Error(`Error on mongoDbHandler on path /handlers/mongoDbHandler.js. Error: ${err}`)
     }
 }
 

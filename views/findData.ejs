@@ -143,7 +143,9 @@
                 </section>
 
                 <section class="dataPreviews">
-                    <% if(rdfList && rdfList.length> 0) { %>
+                    <% if (dbFail) { %>
+                        <p>Mangler kobling med databasen. Prøv igjen senere.</p></p>
+                    <% } else if(rdfList && rdfList.length> 0) { %>
                         <% rdfList.forEach(rdf=> { console.log(rdf)%>
                             <%- include('./partials/findDataPreview.ejs', {rdf}) %>
                         <% }); %>
