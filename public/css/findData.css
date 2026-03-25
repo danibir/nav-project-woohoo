@@ -18,8 +18,16 @@
   border-radius: 20px;
 }
 
+.dataPreviews {
+  margin: 5% auto;
+}
+
 .dataPreviews a {
   text-decoration: none;
+}
+
+.dataPreviews p {
+  color: var(--white);
 }
 
 .dataPreviewInfo h2 {
