@@ -20,16 +20,24 @@ const auth = async(req,res, next)=>{
 
 const authCheck = (req, res, next) => {
     const token = req.cookies.jwt
-    
     if (!!token)
     {
         mid.addNavItems('authed')(req, res, () => {})
     }
+    next()
+}
 
+const authRestrain = (req, res, next) => {
+    const token = req.cookies.jwt
+    if (!token)
+    {
+        return res.status(404).render('404')
+    }
     next()
 }
 
 module.exports = {
     auth,
-    authCheck
+    authCheck,
+    authRestrain
 }
