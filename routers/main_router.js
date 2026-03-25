@@ -4,14 +4,14 @@ const controller = require('../controllers/main_controller.js')
 
 const router = express.Router()
 
-const {auth}= require("../middleware/auth_middleware.js")
+const auth = require("../middleware/auth_middleware.js")
 const mid = require('../middleware/main_middleware.js')
 
 //Routes
 router.get("/", controller.index_render)
 router.get("/findData", mid.addNavItems('search'), controller.findData_render)
-router.get("/rdf",controller.rdf_render)
-router.get('/info/:name', controller.info_render);
+router.get("/rdf", controller.rdf_render)
+router.get('/info/:name', mid.dbReject503, controller.info_render);
 
 
 module.exports = router

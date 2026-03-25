@@ -27,7 +27,7 @@ const sign_in = async(req,res)=>{
     console.log("Key matched")
     const userId = await User.login(username,passwd);
     const token = signJWt(userId)
-    res.cookie("jwt", token, {httpOnly: true, maxAge: maxValidDate *1000})
+    res.cookie("admin", token, {httpOnly: true, maxAge: maxValidDate *1000})
     res.status(200).json({success:true});
     }else{
     throw Error("The Provided Key Is Not Right");

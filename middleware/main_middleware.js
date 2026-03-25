@@ -10,12 +10,33 @@ const setLocals = (req, res, next) => {
 // - (in simpler terms, its just a list accessible by the ejs. here it adds item(s))
 // - add "if (navItems.includes('yourItemString'))" to check this list 
 const addNavItems = (navitems) => (req, res, next) => { //navitems parameter can be either an array or a single string, thanks to .concat
+    res.locals.navItems = res.locals.navItems || []
     res.locals.navItems = res.locals.navItems.concat(navitems)
+    next()
+}
+
+//sets status for database into req, so controller knows weither its connected or not
+// - true or false please
+const dbSetStatus = (status) => (req, res, next) => {
+    req.isDBConnected = status
+    res.locals.dbFail = !status
+    if (!status) {
+        res.clearCookie('admin')
+    }
+    next()
+}
+
+const dbReject503 = (req, res, next) => {
+    if (!req.isDBConnected){
+        return res.status(503).render('503')
+    }
     next()
 }
 
 
 module.exports = {
     setLocals,
-    addNavItems
+    addNavItems,
+    dbSetStatus,
+    dbReject503
 }

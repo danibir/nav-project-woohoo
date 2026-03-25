@@ -31,7 +31,13 @@ app.use(middleware.setLocals)
 
 //Connecting to MongoDb and Starting server!!
 db.connectToMongoDb()
-.then(()=>{
+.then(()=> {
+  app.use(middleware.dbSetStatus(true))
+})
+.catch(()=> {
+  app.use(middleware.dbSetStatus(false))
+})
+.finally(()=>{
   app.use(auth.authCheck)
   app.use(default_router)
   app.use(auth_router)
