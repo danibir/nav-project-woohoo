@@ -37,9 +37,10 @@ const getRDF = async (url) => // * IMPORTANT | url parameter is the rdf url, not
             return quadlist
         })
 
-    if (quadrdf.length == 0 || quadrdf == undefined)
+    if (!quadrdf || quadrdf.length == 0) {
         console.log(`getRDF Warning: couldn't get any rdf data from url (${url}).`)
-
+        return NaN
+    }
     // place rdf data into object
     let obj = {}
     for (qu of quadrdf)
