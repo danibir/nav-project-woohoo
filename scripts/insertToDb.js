@@ -29,6 +29,7 @@ const addToDb = async (url) => {
 
 //example list
 
+/*
 link_list = [
     "https://fellesdatakatalog.digdir.no/datasets/8c6507ff-ec80-3291-9720-97bdd89bd536",
     "https://fellesdatakatalog.digdir.no/datasets/4e52bab6-08f7-38a7-bb99-6f630ec273ee",
