@@ -375,12 +375,18 @@ body {
   text-align: left;
 }
 
-.dropdownLinks {
-  color: var(--dark-blue);
+.dropdownLinks, .dropdownText {
   list-style: none;
   text-align: left;
   margin: 15px 0 0 0;
   padding: 0;
+}
+
+.dropdownText p {
+  color: var(--black);
+}
+.dropdownLinks {
+  color: var(--dark-blue);
 }
 
 .dropdownLinks li {
