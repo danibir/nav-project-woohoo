@@ -498,3 +498,32 @@ footer {
   color: var(--dark-blue);
   font-size: 0.9rem;
 }
+
+.details-page {
+  background-color: var(--red);
+}
+
+.details-title, .secondary-title {
+  color: var(--white);
+  margin-left: 40px;
+}
+
+.sub-text {
+  max-width: 100%;
+  border-bottom: var(--dark-blue) 2px solid;
+  padding: 20px 10px;
+  margin: 10px 0;
+}
+
+.secondary-title {
+  font-size: 16px;
+}
+
+.info-box {
+  background-color: var(--white);
+  width: 90%;
+  margin: 20px auto;
+  border: var(--dark-blue) 2px solid;
+  border-radius: 10px;
+  padding: 0;
+}
