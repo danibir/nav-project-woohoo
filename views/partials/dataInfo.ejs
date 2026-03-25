@@ -1,4 +1,125 @@
-<h1><%= title %></h1>
-<% for( let item of rdfdata.description.object.nb  ) { %>
-    <p><%= item %></p>
-<% } %>
+<section class="details-page">
+
+    <!-- Main Title -->
+    <h1 class="details-title"><%= rdfdata.title?.object?.nb?.[0] || rdfdata.title?.object?.en?.[0] || "Dataset" %></h1>
+
+    <!-- Kontaktinformasjon -->
+    <h2 class="secondary-title">Kontaktinformasjon:</h2>
+
+    <div class="info-box">
+        <% if (rdfdata.contactPoint && rdfdata.contactPoint.object) { %>
+        <p class="sub-text"><strong>Kontaktpunkt:</strong> <%= rdfdata.contactPoint.object[0] %></p>
+        <% } %>
+
+        <% if (rdfdata.hasEmail && rdfdata.hasEmail.object) { %>
+        <p class="sub-text"><strong>E-post:</strong> <%= rdfdata.hasEmail.object[0] %></p>
+        <% } %>
+
+        <% if (rdfdata.publisher && rdfdata.publisher.object) { %>
+        <p class="sub-text"><strong>Utgiver:</strong> <%= rdfdata.publisher.object.join(", ") %></p> <!-- (", ") - Slår sammen alle nøkkelord til én tekst med komma og mellomrom -->
+        <% } %>
+
+        <% if (rdfdata.fn && rdfdata.fn.object?.nb) { %>
+        <p class="sub-text"><strong>Kontaktperson (fn):</strong> <%= rdfdata.fn.object.nb.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.name && rdfdata.name.object?.nb) { %>
+        <p class="sub-text"><strong>Organisasjonsnavn:</strong> <%= rdfdata.name.object.nb.join(", ") %></p>
+        <% } %>
+
+    </div>
+
+    <!-- Om dataene -->
+    <h2 class="secondary-title">Om dataene:</h2>
+
+    <div class="info-box">
+        <% if (rdfdata.description?.object?.nb) { %>
+        <p class="sub-text"><strong>Beskrivelse:</strong></p>
+        <% for (let item of rdfdata.description.object.nb) { %>
+            <p class="sub-text"><%= item %></p>
+        <% } %>
+        <% } %>
+
+        <% if (rdfdata.keyword?.object?.nb) { %>
+        <p class="sub-text"><strong>Nøkkelord:</strong> <%= rdfdata.keyword.object.nb.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.theme && rdfdata.theme.object) { %>
+        <p class="sub-text"><strong>Tema:</strong> <%= rdfdata.theme.object.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.type && rdfdata.type.object) { %>
+        <p class="sub-text"><strong>Type:</strong> <%= rdfdata.type.object.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.accessRights && rdfdata.accessRights.object) { %>
+        <p class="sub-text"><strong>Tilgang:</strong> <%= rdfdata.accessRights.object.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.isPartOf && rdfdata.isPartOf.object) { %>
+        <p class="sub-text"><strong>Del av:</strong> <%= rdfdata.isPartOf.object.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.primaryTopic && rdfdata.primaryTopic.object) { %>
+        <p class="sub-text"><strong>Primært emne:</strong> <%= rdfdata.primaryTopic.object.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.modified && rdfdata.modified.object) { %>
+        <p class="sub-text"><strong>Sist oppdatert:</strong> <%= rdfdata.modified.object[0] %></p>
+        <% } %>
+
+        <% if (rdfdata.issued && rdfdata.issued.object) { %>
+        <p class="sub-text"><strong>Først publisert:</strong> <%= rdfdata.issued.object[0] %></p>
+        <% } %>
+
+        <% if (rdfdata.accrualPeriodicity && rdfdata.accrualPeriodicity.object) { %>
+        <p><strong>Oppdateringsfrekvens:</strong> <%= rdfdata.accrualPeriodicity.object.join(", ") %></p>
+        <% } %>
+    </div>
+
+    <!-- Organisasjon -->
+    <h2 class="secondary-title">Organisasjon:</h2>
+
+    <div class="info-box">
+        <% if (rdfdata.legalName && rdfdata.legalName.object) { %>
+        <p class="sub-text"><strong>Juridisk navn:</strong> <%= rdfdata.legalName.object.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.orgType && rdfdata.orgType.object) { %>
+        <p class="sub-text"><strong>Org-type:</strong> <%= rdfdata.orgType.object.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.orgPath && rdfdata.orgPath.object) { %>
+        <p><strong>Org-path:</strong> <%= rdfdata.orgPath.object.join(", ") %></p>
+        <% } %>
+    </div>
+
+    <!-- Metadata -->
+    <h2 class="secondary-title">Metadata:</h2>
+
+    <div class="info-box">
+        <% if (rdfdata.identifier && rdfdata.identifier.object) { %>
+        <p class="sub-text"><strong>Identifier:</strong> <%= rdfdata.identifier.object.join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.title && rdfdata.title.object) { %>
+        <p class="sub-text"><strong>Tittel:</strong> <%= (rdfdata.title.object.nb || rdfdata.title.object.en || []).join(", ") %></p>
+        <% } %>
+
+        <% if (rdfdata.description && rdfdata.description.object) { %>
+        <p class="sub-text"><strong>Beskrivelse (metadata):</strong> <%= (rdfdata.description.object.nb || []).join(", ") %></p>
+        <% } %>
+    </div>
+
+    <!-- Distribusjoner -->
+    <h2 class="secondary-title">Distribusjoner:</h2>
+
+    <div class="info-box">
+        <% if (rdfdata.dataset && rdfdata.dataset.object) { %>
+        <% for (let list of rdfdata.dataset.object) { %>
+            <p class="sub-text"><%= list %></p>
+        <% } %>
+        <% } %>
+    </div>
+
+</section>
