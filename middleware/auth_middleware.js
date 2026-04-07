@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken")
 const mid = require('./main_middleware')
+const han = require('../handlers/helperware')
 
 //JWT token verification
 const auth = async(req,res, next)=>{
@@ -30,7 +31,7 @@ const authCheck = (req, res, next) => {
 const authRestrain = (req, res, next) => {
     const token = req.cookies.jwt
     if (!token) {
-        return res.status(404).render('404')
+        return han.renderErrorPage(res, 404, "Page not found.")
     }
     next()
 }

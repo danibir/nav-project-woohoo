@@ -7,6 +7,7 @@ const Rdf = require("../models/main_model.js");
 
 //Handlers
 const db = require("../handlers/mongoDbHandler.js");
+const helper = require('../handlers/helperware.js')
 
 
 //controllers
@@ -63,7 +64,7 @@ const info_render = async (req, res) => {
       if (resu.length == 0) {
         console.log('not found')
         console.log(resu);
-        res.redirect("/404");
+        return helper.renderErrorPage(res, 404, 'Page not')
       } else {
         console.log('found')
         console.log(resu[0]);

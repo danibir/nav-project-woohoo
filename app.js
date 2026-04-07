@@ -18,6 +18,7 @@ const admin_router = require("./routers/admin_router")
 //Middleware
 const auth = require('./middleware/auth_middleware')
 const middleware = require('./middleware/main_middleware')
+const handler = require('./handlers/helperware')
 
 //Options config
 app.set('view engine', 'ejs')
@@ -43,7 +44,7 @@ db.connectToMongoDb()
   app.use(auth_router)
   app.use('/admin', admin_router)
   app.use((req, res) => {
-    res.status(404).render('404');
+    handler.renderErrorPage(res, 404, 'Page not found.')
   })
 
   app.listen(3000, () => {

@@ -1,3 +1,4 @@
+const han = require('../handlers/helperware')
 
 //sets local values for future functions
 // - feel free to add more variables
@@ -28,7 +29,7 @@ const dbSetStatus = (status) => (req, res, next) => {
 
 const dbReject503 = (req, res, next) => {
     if (!req.isDBConnected){
-        return res.status(503).render('503')
+        return han.renderErrorPage(res, 503, "Service unavailable: database is unavailable, come back later.")
     }
     next()
 }
