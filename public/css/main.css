@@ -1,9 +1,11 @@
 * {
-  --white: #f4f4f4;
-  --dark-red: #5c0000;
-  --red: #c30000;
-  --dark-blue: #0068c5;
-  --blue: #cce3f1;
+  --white: #FFFFFF;
+  --off-white: #f4f4f4;
+  --red: #A20000;
+  --midnight-blue: #001E30;
+  --dark-blue: #557089;
+  --blue: #9FB5C2;
+  --light-blue: #CCE3F1;
   --black: #000000;
 }
 
@@ -15,7 +17,42 @@ body {
   display: flex;
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--white);
+  background-color: var(--off-white);
+}
+
+.lines {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* shared */
+.lineOne,
+.lineTwo,
+.lineThree {
+  position: absolute;
+  height: 200vmax;
+  top: -50vmax;
+  background-color: var(--light-blue);
+  transform: rotate(22deg);
+  
+}
+
+.lineOne {
+  width: 120px;
+  left: 3%;
+}
+
+.lineTwo {
+  width: 92px;
+  left: 62%;
+}
+
+.lineThree {
+  width: 65px;
+  left: 75%;
 }
 
 /* NAVBAR */
@@ -24,7 +61,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: var(--black) 1px solid;
+  background-color: var(--red);
 }
 
 .navbar a {
@@ -33,7 +70,7 @@ body {
 
 .navbar p {
   font-size: 1.3rem;
-  color: var(--dark-blue);
+  color: var(--off-white);
 }
 
 .navLogo img {
@@ -83,61 +120,81 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .indexLogo img {
-  width: 450px;
+  width: 400px;
 }
 
 .indexPage {
   margin: 0;
   padding: 0;
   height: 100vh;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.indexText {
+  text-align: center;
+  font-size: 24px;
+}
+
 /* search field */
 
 .searchField {
-  width: 600px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .searchInput {
-  display: flex;
+  display: inline-block;
+  position: relative;
   align-items: center;
+
 }
 
 .searchInput input {
-  background-color: var(--blue);
-  border: var(--dark-blue) 2px solid;
-  border-radius: 10px;
-  width: 450px;
-  height: 60px;
+  background-color: var(--off-white);
+  border: var(--blue) 1px solid;
+  box-shadow: var(--blue) 0px 0px 15px;
+  color: var(--blue);
+  border-radius: 100px;
+  width: 750px;
+  height: 65px;
   font-size: 1.2rem;
 }
 
-.searchInput button {
-  width: 70px;
-  height: 60px;
-  background-color: var(--red);
-  border: var(--dark-red) 2px solid;
-  border-radius: 10px;
-  margin: 0 15px;
+.searchInput input::placeholder {
+  color: var(--blue);
 }
 
+input#search {
+  padding: 0 30px;
+}
+
+.searchInput button {
+  width: 50px;
+  height: 50px;
+  background-color: var(--dark-blue);
+  border: none;
+  border-radius: 100px;
+  margin: 7px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+}
+
+
 .searchInput button img {
-  width: 30px;
+  width: 20px;
 }
 
 .searchInput button:hover {
   cursor: pointer;
-  background-color: var(--dark-red);
-  border: var(--red) 2px solid;
+  background-color: var(--blue);
 }
 
 .container-results ul {
@@ -428,8 +485,7 @@ body {
 /* FOOTER */
 
 footer {
-  background-color: var(--white);
-  color: var(--dark-blue);
+  background-color: var(--dark-blue);
   margin-top: 5px;
 }
 
@@ -449,14 +505,14 @@ footer {
 .footer-section h3 {
   font-size: 1.1rem;
   margin-bottom: 15px;
-  color: var(--black);
+  color: var(--white);
 }
 
 .footer-section p {
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 10px 0;
-  color: var(--black);
+  color: var(--white);
 }
 
 .footer-section ul {
@@ -470,20 +526,19 @@ footer {
 }
 
 .footer-section a {
-  color: var(--dark-blue);
+  color: var(--white);
   transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-  color: var(--dark-red);
+  color: var(--light-blue);
   text-decoration: underline;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   padding: 20px;
-  color: var(--dark-blue);
+  color: var(--white);
   font-size: 0.9rem;
 }
 
