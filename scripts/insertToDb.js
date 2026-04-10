@@ -3,7 +3,7 @@ const db = require('../handlers/mongoDbHandler')
 const rdf = require('../rdf/rdf')
 const scrpt = require('./script.js')
 
-const addToDb = async (url) => {
+const addToDb = async (url, tags) => {
     await db.connectToMongoDb()
     const rdfData = await rdf.getRDF(url)
     const isOccupied = await NavData.exists({ url: url })
@@ -15,7 +15,8 @@ const addToDb = async (url) => {
         console.log('Adding url...')
         const obj = {
             title: titles,
-            url: url
+            url: url,
+            tags: tags
         }
         let newObj = new NavData(obj)
         console.log(newObj)
