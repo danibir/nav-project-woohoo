@@ -187,7 +187,6 @@ input#search {
   
 }
 
-
 .searchInput button img {
   width: 20px;
 }
@@ -236,158 +235,45 @@ input#search {
   align-items: center;
 }
 
-/* sorting */
+/* datapreview partial */
 
-.sortingField {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  padding: 0 30px;
-  color: var(--white);
-}
-
-.sortingField label {
-  font-size: 20px;
-}
-
-.sortingField option {
-  background-color: var(--white);
-}
-
-.sorting {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: var(--white);
-  background-image: url('/img/icons/downArrow.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right center;
-  border: var(--dark-blue) 2px solid;
-  border-radius: 10px;
-  color: var(--dark-blue);
+.dataPreview {
+  margin: 20px;
   padding: 10px;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.sorting:hover {
-  cursor: pointer;
-}
-
-/* FILTERS */
-
-.activeFilters {
-  width: fit-content;
-}
-
-.activeFilters button {
   background-color: var(--white);
   border: var(--dark-blue) 2px solid;
-  border-radius: 10px;
-  width: 324px;
-  padding: 0 10px;
-  margin: 0 20px;
-  text-align: left;
+  border-radius: 5px;
 }
 
-.activeFilters h2 {
-  color: var(--dark-blue);
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 10px;
+.dataPreviews {
+  width: 90%;
+}
+
+.dataPreviews a {
+  text-decoration: none;
+}
+
+.dataPreviews p {
+  color: var(--midnight-blue);
   margin: 0;
 }
 
-.activeFilters button:hover {
-  cursor: pointer;
-}
-
-.chooseFilters {
-  width: fit-content;
-}
-
-.filterBox {
-  background-color: var(--white);
-  border: var(--dark-blue) 2px solid;
-  border-radius: 10px;
-  width: 300px;
-  padding: 0 10px;
-  margin: 20px;
-}
-
-.filterBox h2 {
-  color: var(--dark-blue);
+.dataPreviewInfo h2 {
+  color: var(--midnight-blue);
   margin-bottom: 0;
 }
 
-.filterOption {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.dataPreviewInfo {
+  padding: 0 20px;
 }
 
-.filterOption img {
-  width: 30px;
-  height: auto;
-}
-
-.filterOption img:hover {
-  cursor: pointer;
-}
-
-.filterTitle {
-  display: flex;
-  align-items: center;
-}
-
-.filterTitle h4 {
-  margin: 10px;
-}
-
-.filterTitle:hover {
-  cursor: pointer;
-}
-
-.realCheckbox {
-  display: none;
-}
-
-.customCheckbox {
-  width: 30px;
-  height: 30px;
-  background: url("/img/icons/uncheckedBox.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
-.realCheckbox:checked + .customCheckbox {
-  background: url("/img/icons/checkbox.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 20px;
-  width: 20px;
-  margin: 0 5px;
-}
-
-.secondaryOption {
-  margin-left: 30px;
-}
-
-.hidden {
-  display: none;
-}
-
-.downArrow {
-  transition: transform 0.3s ease;
-}
-
-.downArrow.rotated {
-  transform: rotate(180deg);
+.dataPreInfo {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  color: var(--midnight-blue);
+  margin: 0;
+  height: fit-content;
 }
 
 /*Dropdown menu*/
