@@ -9,8 +9,12 @@ const dataSchema = new Schema({
   url: {
     type: String,
     required: true
+  },
+  tags: {
+    type: Array,
+    default: []
   }
-});
+})
 
 const navData = mongoose.model("navDatas", dataSchema, "navdata")
 

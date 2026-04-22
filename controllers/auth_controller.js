@@ -53,7 +53,7 @@ const sign_up = async(req,res)=>{
     if(key === process.env.authKey){
     const userId = await User.register(username,passwd)
     const token = signJWt(userId)
-    res.cookie("jwt", token, {httpOnly: true, maxAge: maxValidDate *1000})
+    res.cookie("admin", token, {httpOnly: true, maxAge: maxValidDate *1000})
     res.status(200).json({success:true})
     }else{
         throw Error("The Provided Key Is Not Right")
@@ -64,9 +64,15 @@ const sign_up = async(req,res)=>{
     }
 }
 
+const log_out = (req, res) => {
+    res.clearCookie('admin')
+    res.redirect('/')
+}
+
 module.exports = {
     sign_in_render,
     sign_in,
     sign_up_render,
-    sign_up
+    sign_up,
+    log_out
 };
