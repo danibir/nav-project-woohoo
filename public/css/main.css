@@ -398,60 +398,60 @@ input#search {
 }
 
 .dropdownContent {
-  display: block; /* Always block for animation */
+  position: fixed;
+  top: 67px;
+  left: 0;
+  width: 100%;
+
+  background-color: var(--off-white);
+  border: 1px solid var(--midnight-blue);
+  padding: 24px 0;
+  z-index: 1000;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  pointer-events: none; /* let clicks pass through when closed */
+  pointer-events: none;
   transition:
     max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.3s;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 78px;
-  width: 100vw;
-  background-color: var(--white);
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
-  padding: 24px 0;
-  z-index: 1;
-  text-align: center;
-  transform: translateY(-10px);
+    opacity 0.3s ease;
+}
+
+.menuDropdown.active .dropdownContent {
+  max-height: 1000px;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .grid-content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 100px;
-  padding: 24px 60px;
-  width: fit-content;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .grid-content > div {
   text-align: left;
 }
 
-.dropdownLinks, .dropdownText {
+.dropdownLinks,
+.dropdownText {
   list-style: none;
-  text-align: left;
-  margin: 15px 0 0 0;
+  margin: 10px 0 0 0;
   padding: 0;
 }
 
-.dropdownText p {
-  color: var(--black);
-}
-.dropdownLinks {
-  color: var(--dark-blue);
-}
-
-.dropdownLinks li {
-  margin-bottom: 12px;
+.dropdownText p,
+.dropdownLinks li,
+.dropdownLinks a {
+  font-size: 16px;
+  color: var(--midnight-blue);
+  margin: 0;
 }
 
 .dropdownLinks a {
-  color: var(--dark-blue);
   text-decoration: underline;
 }
 
@@ -461,13 +461,12 @@ input#search {
 
 .menu-title {
   margin: 0;
-  padding: 0;
+  font-size: 20px;
 }
 
-.menuDropdown.active .dropdownContent {
-  max-height: 1000px; /* Large enough for your content */
-  opacity: 1;
-  pointer-events: auto; /* re-enable clicks when open */
+.menu-title img {
+  height: 17px;
+  width: 60px;
 }
 
 /* 404 */
