@@ -16,23 +16,7 @@ const index_render = async (req, res) => {
     return res.render('index')
   }
   try {
-    const query = req.query.search || "";
-    let data = [];
-
-    if (query.trim()) {
-      const searchPattern = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      data = await Rdf.find({
-        $or: [
-          { "title.object.nb": { $regex: searchPattern, $options: "i" } },
-          { "title.object.en": { $regex: searchPattern, $options: "i" } },
-        ],
-      });
-    } else {
-      data = await Rdf.find({});
-    }
-
-    res.render("index", { data });
-    console.log(data);
+    res.render("index", {})
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
@@ -44,8 +28,21 @@ const findData_render = async (req, res) => {
   if (!req.isDBConnected) {
     return res.render('findData', { rdf: [], rdfList: []})
   }
-  const dbData = await Rdf.find();
-  const rdfList = await Promise.all(dbData.map((item) => rdf.getRDF(item.url)));
+  const query = req.query.search || "";
+  let data = [];
+
+  if (query != "" || query.trim()) {
+    const searchPattern = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") //security meassure apparently (removes injection-like keys)
+    data = await Rdf.find({
+      $or: [
+        { "title.object.nb": { $regex: searchPattern, $options: "i" } },
+        { "title.object.en": { $regex: searchPattern, $options: "i" } },
+      ],
+    })
+  } else {
+    data = await Rdf.find({})
+  }
+  const rdfList = await Promise.all(data.map((item) => rdf.getRDF(item.url)));
   res.render("findData", { rdf, rdfList });
 };
 
