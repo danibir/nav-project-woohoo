@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link rel="stylesheet" href="/css/api.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <%
+        function recursive(value) { //div wrapping of arrays and objects
+            // other kinds of data
+            if (typeof value !== "object" || value === null) {
+                console.log('primitive')
+                return `<div class="primitive item">${value}</div>`
+            }
+
+            // arrays
+            if (Array.isArray(value)) {
+                console.log('array')
+                let html = `<div class="array item"><h2>Array:</h2>`
+                for (let item of value) {
+                    html += recursive(item)
+                }
+                html += `</div>`
+                return html
+            }
+
+            // Objects
+            let html = `<div class="object item"><h2>Object:</h2>`
+            for (let key in value) {
+                html += `
+                    <details class="pair">
+                        <summary class="key">${key}</summary>
+                        <div class="value">${recursive(value[key])}</div>
+                    </details>
+                `
+            }
+            html += `</div>`
+            return html
+            
+        }
+    %>
+    <%- recursive(data) %>
+</body>

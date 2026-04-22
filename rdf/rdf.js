@@ -57,7 +57,7 @@ const getRDF = async (url) => // * IMPORTANT | url parameter is the rdf url, not
         const keyIndex = prediKey.lastIndexOf('#')
         prediKey = prediKey.substring(keyIndex + 1, prediKey.length)
 
-        cropList = ["title", "description", "fn", "keyword"]
+        cropList = ["title", "description", "fn", "keyword", "name", "prefLabel"]
         if (cropList.includes(prediKey))
         {
             q_objec = scrpt.snipLang(q_objec)
