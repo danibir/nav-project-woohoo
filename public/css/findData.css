@@ -1,68 +1,161 @@
-/* FIND DATA page */
-
 .findDataPage {
   width: 100%;
   height: fit-content;
-  background-color: var(--red);
+  font-weight: 100;
 }
 
 .results {
   display: flex;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.dataPreview {
-  margin: 20px;
-  padding: 10px;
-  background-color: var(--white);
-  border: var(--dark-blue) 2px solid;
-  border-radius: 20px;
-}
+/* sorting */
 
-.dataPreviews {
-  margin: 5% auto;
-}
-
-.dataPreviews a {
-  text-decoration: none;
-}
-
-.dataPreviews p {
-  color: var(--white);
-}
-
-.dataPreviewInfo h2 {
-  color: var(--dark-blue);
-}
-
-.dataPreviewInfo {
-  padding: 0 20px;
-}
-
-.dataPreInfo {
-  white-space: pre-line;
-  overflow-wrap: break-word;
-  line-height: 1.5;
-  color: var(--black);
-  margin: 0;
-  height: fit-content;
-}
-
-/* Search Filter */
-.searchFilter {
+.sortingField {
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--midnight-blue);
+  text-align: left;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.sortingField h2 {
+  font-weight: 100;
+}
+
+.sortingField option {
+  background-color: var(--white);
+}
+
+.sorting {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--dark-blue);
+  border: var(--midnight-blue) 1px solid;
+  border-radius: 3px;
   color: var(--white);
-  list-style: none;
-  width: 30vw;
+  margin-left: 10px;
+  width: 40%;
+  padding: 10px;
+  font-size: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cpath d='M39.4271 18.32L25.9762 31.7741L12.5253 18.3184C11.8841 17.6771 10.8466 17.6771 10.2053 18.3184C9.56567 18.9597 9.56567 19.9987 10.2053 20.64L24.8154 35.2549C25.4551 35.8962 26.4941 35.8962 27.1338 35.2549L41.7438 20.64C42.3835 19.9987 42.3835 18.958 41.7438 18.3167C41.1058 17.6787 40.0667 17.6787 39.4271 18.32Z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
 }
 
-.searchFilter li {
-  padding: 10px 20px;
-  border-radius: 10px;
+.sorting:hover {
+  cursor: pointer;
 }
 
-.activeSort {
-    background-color: var(--white);
-    color: var(--dark-blue);
+/* filters */
+
+.resultLeft {
+  width: 30%;
 }
 
+.activeFilters button {
+  background-color: var(--dark-blue);
+  border: var(--midnight-blue) 1px solid;
+  border-radius: 3px;
+  color: var(--white);
+  width: 100%;
+  margin: 10px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.activeFilters button:hover {
+  cursor: pointer;
+}
+
+.activeFilters h2 {
+  font-weight: 100;
+}
+
+.chooseFilters {
+  width: 100%;
+}
+
+.filterBox {
+  background-color: var(--white);
+  border: var(--midnight-blue) 1px solid;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 0 10px;
+}
+
+.filterBox h2 {
+  color: var(--midnight-blue);
+  margin-bottom: 0;
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filterOption svg {
+  width: 30px;
+  height: auto;
+}
+
+.filterOption svg:hover {
+  cursor: pointer;
+}
+
+.filterTitle {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.filterTitle:hover {
+  cursor: pointer;
+}
+
+.realCheckbox {
+  display: none;
+}
+
+.customCheckbox {
+  width: 30px;
+  height: 30px;
+  background: url("/img/icons/uncheckedBox.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.realCheckbox:checked + .customCheckbox {
+  background: url("/img/icons/checkbox.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+}
+
+.secondaryOption {
+  margin-left: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.downArrow {
+  transition: transform 0.3s ease;
+}
+
+.downArrow.rotated {
+  transform: rotate(180deg);
+}
