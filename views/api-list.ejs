@@ -8,17 +8,22 @@
 </head>
 <body>
     <h1><%= title %></h1>
+    <br>
+    <form action="./" method="GET">
+        <div>
+            <input id="search" type="text" name="search" placeholder="Search...">
+        </div>
+    </form>
+    <br>
     <%
         function recursive(value) { //div wrapping of arrays and objects
             // other kinds of data
             if (typeof value !== "object" || value === null) {
-                console.log('primitive')
                 return `<div class="primitive item">${value}</div>`
             }
 
             // arrays
             if (Array.isArray(value)) {
-                console.log('array')
                 let html = `<div class="array item"><h2>Array:</h2>`
                 for (let item of value) {
                     html += recursive(item)
