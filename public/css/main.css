@@ -462,6 +462,7 @@ input#search {
 .menu-title {
   margin: 0;
   font-size: 20px;
+  color: var(--midnight-blue);
 }
 
 .menu-title img {
