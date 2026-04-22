@@ -1,0 +1,27 @@
+.item {
+    margin: 5px;
+    padding: 5px;
+    background-color: gainsboro;
+    border-color: rgb(169, 169, 169);
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+}
+.primitive {
+    border-color: rgb(106, 244, 106);
+    background-color: rgb(187, 255, 187);
+}
+.array {
+    border-color: orange;
+    background-color: rgb(253, 196, 91);
+}
+.object {
+    border-color: cyan;
+    background-color: rgb(189, 252, 252);
+}
+.pair {
+    border-color: yellow;
+    background-color: rgb(254, 254, 188);
+    padding: 2px;
+    margin: 2px;
+}
