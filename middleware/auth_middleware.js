@@ -4,7 +4,7 @@ const han = require('../handlers/helperware')
 
 //JWT token verification
 const auth = async(req,res, next)=>{
-    const token = req.cookies.jwt
+    const token = req.cookies.admin
     if(token){
         await jwt.verify(token, process.env.secret, (err, decodedToken)=>{
             if(err){
