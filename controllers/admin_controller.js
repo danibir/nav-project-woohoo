@@ -8,13 +8,30 @@ const index_get = async (req, res) => {
     res.render("adminMenu", { rdfdata: rdf })
 }
 const create_get = async (req, res) => {
-    res.render("adminCreate", {})
+    const rdf = await Rdf.find()
+    const tagArray = []
+    for (const item of rdf) {
+        for (tag of item.tags) {
+            tagArray.push(tag)
+        }
+    }
+    const counts = {}
+    for (const item of tagArray) {
+    counts[item] = (counts[item] || 0) + 1
+    }
+
+    // Sort by count descending
+    const sortedUnique = Object.entries(counts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([value]) => value)
+
+    res.render("adminCreate", { data: sortedUnique })
 }
 
 const create_post = async (req, res) => {
     const data = await rdf.getRDF(req.body.url)
     if (!!data) {
-        await insert.addToDb(req.body.url)
+        await insert.addToDb(req.body.url, req.body["data-item"])
         res.redirect('/admin') 
     } else {
         res.json('url invalid')

@@ -3,10 +3,17 @@
 <%- include('./partials/background-design.ejs') %>
 
 
+<input type="hidden" id="data-data" name="data-data" value='<%- JSON.stringify(data)%>' %>
+
 <div class="center flexcol">
     <div class="flexrow">
         <form action="/admin/create" method="post">
             <input type="url" name="url">
+            <br>
+            <br>
+            
+            <%- include('./partials/anysearch.ejs', { datalist: data, array: [], name: "data", require: 'any' }) %>
+        
             <button>confirm</button>
         </form>
     </div>
