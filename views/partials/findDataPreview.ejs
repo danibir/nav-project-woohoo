@@ -1,16 +1,20 @@
 <% if (rdf.title.object.nb) { %>
 
-    <section class="dataPreview">
+    <section class="dataPreview" data-tema="<%= rdf.tags %>">
         <a href="/info/<%= rdf.title.object.nb[0] %>">
             <div class="dataPreviewInfo">
-            <div class="dataPreTitle">
-                <h2><%= rdf.title.object.nb %></h2>
-            </div>
-            <div class="dataPreInfo">
-                <p><%= rdf.description.object.nb %></p>
-            </div>
+                <div class="dataPreTitle">
+                    <h2>
+                        <%= rdf.title.object.nb %>
+                    </h2>
+                </div>
+                <div class="dataPreInfo">
+                    <p>
+                        <%= rdf.description.object.nb %>
+                    </p>
+                </div>
             </div>
         </a>
     </section>
 
-<% } %>
+    <% } %>

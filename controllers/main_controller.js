@@ -42,7 +42,15 @@ const findData_render = async (req, res) => {
   } else {
     data = await Rdf.find({})
   }
-  const rdfList = await Promise.all(data.map((item) => rdf.getRDF(item.url)));
+  const rdfList = await Promise.all(
+    data.map(async (item) => {
+      const rdfData = await rdf.getRDF(item.url);
+      return {
+        ...rdfData,
+        tags: item.tags || [],
+      };
+    })
+  );
   res.render("findData", { rdf, rdfList });
 };
 
