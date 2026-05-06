@@ -43,16 +43,10 @@ const findData_render = async (req, res) => {
   } else {
     data = await Rdf.find({})
   }
-  const rdfList = await Promise.all(
-    data.map(async (item) => {
-      const rdfData = await rdf.getRDF(item.url);
-      return {
-        ...rdfData,
-        tags: item.tags || [],
-      };
-    })
-  );
-  res.render("findData", { rdf, rdfList });
+  for (dataItem of data) {
+      dataItem.rdf = await rdf.getRDF(dataItem.url)
+  }
+  res.render("findData", { data });
 };
 
 const rdf_render = async (req, res) => {

@@ -4,14 +4,17 @@
         <a href="/info/<%= rdf.title.object.nb[0] %>">
             <div class="dataPreviewInfo">
                 <div class="dataPreTitle">
-                    <h2>
-                        <%= rdf.title.object.nb %>
-                    </h2>
+                    <h2><%= rdf.title.object.nb %></h2>
                 </div>
                 <div class="dataPreInfo">
-                    <p>
-                        <%= rdf.description.object.nb %>
-                    </p>
+                    <p><%= rdf.description.object.nb %></p>
+                </div>
+                <div class="dataPreTags">
+                    <% for(tag of item) { %>
+                        <div class="dataPreTag">
+                        <%= tag %>
+                        </div>
+                    <% } %>                    
                 </div>
             </div>
         </a>
