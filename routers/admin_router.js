@@ -12,5 +12,8 @@ router.use(mid.dbReject503)
 router.get('/', controller.index_get)
 router.get('/create', controller.create_get)
 router.post('/create', controller.create_post)
+router.get('/config/:id', controller.edit_get)
+router.post('/config/:id', controller.edit_post)
+router.post('/delete/:id', controller.delete_post)
 
 module.exports = router

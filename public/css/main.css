@@ -492,7 +492,7 @@ footer {
   padding: 0;
 }
 
-/* DANIEL BLOB */
+/* DANIEL BLOB (! TEMPORARY TAGS, PLEASE REPLACE ELEMENTS THAT USE THESE !)*/
 
 .center{
   display: flex;
@@ -508,7 +508,13 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
+.visualbox {
+  background-color: gainsboro;
+  border-style: dotted;
+  border-color: lightgray;
+  border-width: 5px;
+  margin: 10px;
+}
 .adminPreview{
   background-color: red;
 }
