@@ -21,6 +21,7 @@ const sign_in_render = (req, res) => {
 };
 
 const sign_in = async(req,res)=>{
+    res.locals.metatitle = "Logg inn"
     const {username, passwd, key} = req.body
     try{
     if(key === process.env.authKey){
@@ -48,6 +49,7 @@ const sign_up_render = (req,res)=>{
 }
 
 const sign_up = async(req,res)=>{
+    res.locals.metatitle = "Registrer"
     const {username, passwd, key} = req.body
     try{
     if(key === process.env.authKey){

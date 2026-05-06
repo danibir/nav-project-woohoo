@@ -58,6 +58,8 @@ body {
 /* NAVBAR */
 
 .navbar {
+  width: 100%;
+  /* position: fixed; */
   display: flex;
   align-items: center;
   justify-content: space-between;
