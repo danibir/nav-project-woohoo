@@ -15,7 +15,7 @@
                 <div class="sortingField">
                     <label for="sorting">
                         <h2>
-                            Søket ditt ga <%= rdfList.length %> treff:
+                            Søket ditt ga <%= data.length %> treff:
                         </h2>
                     </label>
                     <select name="sorting" class="sorting" id="sorting">
@@ -144,10 +144,10 @@
                 <section class="dataPreviews">
                     <% if (dbFail) { %>
                         <p>Mangler kobling med databasen. Prøv igjen senere.</p></p>
-                    <% } else if(rdfList && rdfList.length> 0) { %>
-                        <% rdfList.forEach(rdf=> { console.log(rdf)%>
-                            <%- include('./partials/findDataPreview.ejs', {rdf}) %>
-                        <% }); %>
+                    <% } else if(data && data.length> 0) { %>
+                        <% for (item of data) { %>
+                            <%- include('./partials/findDataPreview.ejs', { rdf: item.rdf, item: item.tags }) %>
+                        <% }; %>
                     <% } else { %>
                         <div class="noData">
                             <p>Vi har for øyeblikket ingen data å vise her</p>
