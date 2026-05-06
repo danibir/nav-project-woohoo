@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const os = require('os')
 const app = express()
 const morgan = require('morgan')
+require("dotenv").config()
 
 //Handlers
 const db = require('./handlers/mongoDbHandler')
@@ -30,7 +31,8 @@ db.connectToMongoDb()
 .then(()=> {
     app.use(middleware.dbSetStatus(true))
 })
-.catch(()=> {
+.catch((err)=> {
+    console.log(err)
     app.use(middleware.dbSetStatus(false))
     app.use((req, res) => {
         res.status(503).write('Database inaccessible')
@@ -41,5 +43,5 @@ db.connectToMongoDb()
 
     app.listen(3000, () => {
         console.log('Server is running on port 3000 and on', os.hostname())
-    })
+    })  
 })

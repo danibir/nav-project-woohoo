@@ -12,6 +12,7 @@ const helper = require('../handlers/helperware.js')
 
 //controllers
 const index_render = async (req, res) => {
+  res.locals.metatitle = "Hjemmeside"
   if (!req.isDBConnected) {
     return res.render('index')
   }
@@ -24,7 +25,7 @@ const index_render = async (req, res) => {
 };
 
 const findData_render = async (req, res) => {
-  
+  res.locals.metatitle = "Finn data"
   if (!req.isDBConnected) {
     return res.render('findData', { rdf: [], rdfList: []})
   }
@@ -49,6 +50,7 @@ const findData_render = async (req, res) => {
 };
 
 const rdf_render = async (req, res) => {
+  res.locals.metatitle = "rdf..."
   const rdfinfo = await rdf.getRDF(
     "https://fellesdatakatalog.digdir.no/datasets/3b6cb3a2-8211-3564-a576-4047c6f614ab",
   );
@@ -69,6 +71,7 @@ const info_render = async (req, res) => {
         console.log(resu[0]);
         const rdfdata = await rdf.getRDF(resu[0].url);
         console.log(rdfdata);
+        res.locals.metatitle = subject
         res.render("info", { title: subject, rdfdata });
       }
     })
