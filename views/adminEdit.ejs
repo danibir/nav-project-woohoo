@@ -12,10 +12,10 @@
             
             <%- include('./partials/anysearch.ejs', { datalist: tags, array: rdfItem.tags, name: "data", require: 'any' }) %>
         
-            <button>save</button>
+            <button>Lagre</button>
         </form>
         <form action="/admin/delete/:<%= id %>" method="post">
-            <button>delete</button>
+            <button>Slett</button>
         </form>
     </div>
 </div>
