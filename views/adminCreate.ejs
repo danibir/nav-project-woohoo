@@ -2,21 +2,22 @@
 <%- include('./partials/navigation') %>
 <%- include('./partials/background-design.ejs') %>
 
+<section class="full-page">
+    <input type="hidden" id="data-data" name="data-data" value='<%- JSON.stringify(data)%>' %>
 
-<input type="hidden" id="data-data" name="data-data" value='<%- JSON.stringify(data)%>' %>
-
-<div class="center flexcol">
-    <div class="flexcol visualbox">
-        <form action="/admin/create" method="post">
-            <input type="url" name="url">
-            <br>
-            <br>
+    <div class="center flexcol">
+        <div class="flexcol visualbox">
+            <form action="/admin/create" method="post">
+                <input type="url" name="url">
+                <br>
+                <br>
+                
+                <%- include('./partials/anysearch.ejs', { datalist: data, array: [], name: "data", require: 'any' }) %>
             
-            <%- include('./partials/anysearch.ejs', { datalist: data, array: [], name: "data", require: 'any' }) %>
-        
-            <button>Godkjenn</button>
-        </form>
+                <button>Godkjenn</button>
+            </form>
+        </div>
     </div>
-</div>
 
 <%- include('./partials/foot') %>
+</section>
