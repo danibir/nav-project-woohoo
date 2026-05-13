@@ -79,7 +79,6 @@
 .adminDataPreviews:hover {
     cursor: pointer;
     border: var(--midnight-blue) 2px solid;
-    background-color: var(--blue);
 }
 
 .adminDataPreviews a {

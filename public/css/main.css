@@ -86,6 +86,7 @@ body {
   align-items: center;
   text-align: center;
   margin-right: 20px;
+  padding: 0;
 }
 
 .navbarLinks img {
@@ -106,6 +107,11 @@ body {
 
 .menuBttn img {
   margin: 5px;
+}
+
+.configLink p {
+  border-left: var(--off-white) 2px solid;
+  padding-left: 20px;
 }
 
 .navbarLinks button {
