@@ -25,11 +25,11 @@ const index_render = async (req, res) => {
 
 const findData_render = async (req, res) => {
   res.locals.metatitle = "Finn data";
-  if (!req.isDBConnected) {
-    return res.render("findData", { rdf: [], rdfList: [], sort });
-  }
   const query = req.query.search || "";
   const sort = req.query.sort || "";
+  if (!req.isDBConnected) {
+    return res.render("findData", { data: [], sort });
+  }
   let data = [];
 
   const searchResults = await helper.searchQuery(Rdf, query);
