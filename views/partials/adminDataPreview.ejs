@@ -1,12 +1,9 @@
-<section class="adminDataPreview">
-    <a href="/admin/config/:<%= rdf._id %>">
+<a href="/admin/config/:<%= rdf._id %>" class="adminConfigALink">
+    <div class="adminDataPreviews">
         <% if (rdf.title.object.nb) { %>
-                <div class="dataPreviewInfo">
-                <div class="dataPreTitle">
                     <h2> <%= rdf.title.object.nb %></h2>
-                </div>
         <% } else { %>
             <h2 class="invalid">< ! Ugyldig dataregistrering, vennligst fjern ! ></h2>
         <% } %>
-    </a>
-</section>
+    </div>
+</a>

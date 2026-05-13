@@ -7,7 +7,7 @@ const searchQuery = async (model, query) => {
     if (query.trim() !== "") {
         const searchPattern = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") //security meassure apparently (removes injection-like keys)
         data = await model.find({
-          $or: [
+          $and: [
             { "title.object.nb": { $regex: searchPattern, $options: "i" } },
             { "title.object.en": { $regex: searchPattern, $options: "i" } },
           ],

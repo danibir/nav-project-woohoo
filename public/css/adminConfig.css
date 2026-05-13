@@ -68,8 +68,12 @@
     gap: 20px;
     margin: 20px;
 }
+.adminConfigPageResults a {
+    text-decoration: none;
+}
 
 .adminDataPreviews {
+    text-decoration: none;
     background-color: var(--off-white);
     border: var(--dark-blue) 2px solid;
     border-radius: 3px;
@@ -81,9 +85,9 @@
     border: var(--midnight-blue) 2px solid;
 }
 
-.adminDataPreviews a {
-    color: var(--midnight-blue);
+.adminDataPreviews h2 {
     text-decoration: none;
+    color: var(--midnight-blue);
 }
 
 .invalid {
