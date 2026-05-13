@@ -5,6 +5,7 @@ const han = require('../handlers/helperware')
 const setLocals = (req, res, next) => {
     res.locals.navItems = []
     res.locals.metatitle = "Ukjent side"
+    res.locals.error = ""
     next()
 }
 
