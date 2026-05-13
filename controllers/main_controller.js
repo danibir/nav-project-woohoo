@@ -30,19 +30,7 @@ const findData_render = async (req, res) => {
     return res.render('findData', { rdf: [], rdfList: []})
   }
   const query = req.query.search || "";
-  let data = [];
-
-  if (query != "" || query.trim()) {
-    const searchPattern = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") //security meassure apparently (removes injection-like keys)
-    data = await Rdf.find({
-      $or: [
-        { "title.object.nb": { $regex: searchPattern, $options: "i" } },
-        { "title.object.en": { $regex: searchPattern, $options: "i" } },
-      ],
-    })
-  } else {
-    data = await Rdf.find({})
-  }
+  const data = await helper.searchQuery(Rdf, query)
   for (dataItem of data) {
       dataItem.rdf = await rdf.getRDF(dataItem.url)
   }
