@@ -15,8 +15,16 @@ async function connectToMongoDb() {
     }
 }
 async function connectHelper(dbIP = 'localhost', dbName = "navData") {
-    try{
-        await mongoose.connect(`mongodb://${dbIP}:27017/`, {dbName});
+    const timeUntilTimeout = 1000
+    const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => {
+            reject(new Error(`Timeout: database didn't respond. (${timeUntilTimeout / 1000} seconds)`));
+        }, timeUntilTimeout)
+    })
+    const connectPromise = mongoose.connect(`mongodb://${dbIP}:27017/`, { dbName })
+
+    try {
+        await Promise.race([connectPromise, timeoutPromise]);
         console.log("Connected to mondoDB on collection: ", mongoose.connection.name);
 
     }catch(err){
