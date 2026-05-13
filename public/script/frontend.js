@@ -153,3 +153,15 @@ function filterResults() {
     console.log("Selected:", selectedFilters);
   });
 }
+
+// Sorting functionality
+document.getElementById("sorting").addEventListener("change", function () {
+  const sortValue = this.value;
+  const url = new URL(window.location);
+  if (sortValue === "") {
+    url.searchParams.delete("sort");
+  } else {
+    url.searchParams.set("sort", sortValue);
+  }
+  window.location.href = url.toString();
+});

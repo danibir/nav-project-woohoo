@@ -28,7 +28,7 @@
 }
 
 .sortingField option {
-  background-color: var(--white);
+  background-color: var(--dark-blue);
 }
 
 .sorting {

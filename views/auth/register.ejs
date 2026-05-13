@@ -1,16 +1,21 @@
 <%- include('../partials/head.ejs') %>
 <link rel="stylesheet" href="css/auth.css">
-    <%- include('../partials/navigation.ejs') %>
-    <form id="sign-up">
-        <label for="username">Brukernavn:</label>
-        <input type="text" name="username" id="username" placeholder="Skriv inn brukernavn..">
-        <label for="passwd">Passord:</label>
-        <input type="password" name="passwd" id="passwd" placeholder="Skriv inn Passord..">
-        <label for="key">Nøkkel:</label>
-        <input type="password" name="key" id="key" placeholder="Skriv inn Nøkkel..">
-        <button type="submit">Sign Up</button>
-        <div class="error"></div>
-        <p>Har du allerede en bruker? Logg inn <a href="/sign-in">her!</a></p>
-    </form>
-<script src="script/auth/register.js"></script>
+
+<%- include('../partials/navigation.ejs') %>
+<form id="sign-up" action="/sign-up" method="post"> <!-- everything relies on form element styling? please figure out something else -->
+    <label for="username">Brukernavn:</label>
+    <input type="text" name="username" id="username" placeholder="Skriv inn brukernavn.." required>
+    <label for="passwd">Passord:</label>
+    <input type="password" name="passwd" id="passwd" placeholder="Skriv inn passord.." required>
+    <input type="password" name="passwdtest" id="passwdtest" placeholder="Gjenta passord" required>
+    <label for="key">Nøkkel:</label>
+    <input type="password" name="key" id="key" placeholder="Skriv inn nøkkel.." required>
+    <button type="submit">Registrer</button>
+    <div class="error"><%= error %></div> <!-- not required to be inside form -->
+    <p>Har du allerede en bruker? Logg inn <a href="/sign-in">her!</a></p> <!-- not required to be inside form -->
+</form>
+
+<!--special js post script to handle displaying error messages, replaced and depricated(because it was just a weird way of handling error messages) -->
+<!--<script src="script/auth/register.js"></script>-->
+
 <%- include('../partials/foot.ejs') %>

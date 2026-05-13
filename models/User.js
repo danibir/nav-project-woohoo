@@ -10,8 +10,7 @@ const userSchema = new Schema({
   passwd: {
     type: String,
     unique: true,
-    required: true,
-    minLength: 6,
+    required: true
   }
 });
 
@@ -33,13 +32,13 @@ userSchema.statics.register = async(username, passwd)=>{
 
 userSchema.statics.login = async(username, passwd)=>{
     const user = await User.findOne({name:username})
-    if(user){
-    if(await argon2.verify(user.passwd, passwd)){
-        return user._id
+    if(user) {
+        if(await argon2.verify(user.passwd, passwd)) {
+            return {success: true, result: user._id}
+        }
+        return Error({success: false, result: "Incredentials do not match."})
     }
-    throw Error("Provided Password is Wrong")
-    }
-    throw Error("User Not Found")
+    return Error({success: false, result: "Incredentials do not match."})
 }
 
 const User = model("Users", userSchema)
