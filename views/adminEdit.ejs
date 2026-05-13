@@ -2,23 +2,25 @@
 <%- include('./partials/navigation') %>
 <%- include('./partials/background-design.ejs') %>
 
-<input type="hidden" id="data-data" name="data-data" value='<%- JSON.stringify(tags)%>' %>
+<section class="full-page">
+    <input type="hidden" id="data-data" name="data-data" value='<%- JSON.stringify(tags)%>' %>
 
-<div class="center flexcol">
-    <div class="flexcol visualbox">
-        <h2><%= title %></h2>
-        <h3><%= rdfItem.url %></h3>
-        <form action="/admin/config/:<%= id %>" method="post">
+    <div class="center flexcol">
+        <div class="flexcol visualbox">
+            <h2><%= title %></h2>
+            <h3><%= rdfItem.url %></h3>
+            <form action="/admin/config/:<%= id %>" method="post">
+                
+                <%- include('./partials/anysearch.ejs', { datalist: tags, array: rdfItem.tags, name: "data", require: 'any' }) %>
             
-            <%- include('./partials/anysearch.ejs', { datalist: tags, array: rdfItem.tags, name: "data", require: 'any' }) %>
-        
-            <button>Lagre</button>
-        </form>
-        <form action="/admin/delete/:<%= id %>" method="post">
-            <button>Slett</button>
-        </form>
+                <button>Lagre</button>
+            </form>
+            <form action="/admin/delete/:<%= id %>" method="post">
+                <button>Slett</button>
+            </form>
+        </div>
     </div>
-</div>
 
 
 <%- include('./partials/foot') %>
+</section>

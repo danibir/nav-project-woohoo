@@ -21,6 +21,10 @@ body {
   background-color: var(--off-white);
 }
 
+.full-page {
+  margin-top: 70px;
+}
+
 .lines {
   position: fixed;
   inset: 0;
