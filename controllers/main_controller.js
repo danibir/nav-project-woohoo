@@ -28,7 +28,7 @@ const findData_render = async (req, res) => {
   const query = req.query.search || "";
   const sort = req.query.sort || "";
   if (!req.isDBConnected) {
-    return res.render("findData", { rdf: [], rdfList: [], sort });
+    return res.render("findData", { data: [], sort });
   }
   let data = [];
 
