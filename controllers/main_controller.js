@@ -26,9 +26,10 @@ const index_render = async (req, res) => {
 const findData_render = async (req, res) => {
   res.locals.metatitle = "Finn data";
   if (!req.isDBConnected) {
-    return res.render("findData", { rdf: [], rdfList: [] });
+    return res.render("findData", { rdf: [], rdfList: [], sort });
   }
   const query = req.query.search || "";
+  const sort = req.query.sort || "";
   let data = [];
 
   if (query.trim() !== "") {
@@ -45,7 +46,26 @@ const findData_render = async (req, res) => {
   for (dataItem of data) {
     dataItem.rdf = await rdf.getRDF(dataItem.url);
   }
-  res.render("findData", { data });
+
+  // Sorting logic
+  if (sort === "Sist publisert") {
+    data.sort((a, b) => b._id.getTimestamp() - a._id.getTimestamp());
+  } else if (sort === "A - Å") {
+    data.sort((a, b) =>
+      (a.rdf.title?.object?.nb?.[0] || "").localeCompare(
+        b.rdf.title?.object?.nb?.[0] || "",
+      ),
+    );
+  } else if (sort === "Å - A") {
+    data.sort((a, b) =>
+      (b.rdf.title?.object?.nb?.[0] || "").localeCompare(
+        a.rdf.title?.object?.nb?.[0] || "",
+      ),
+    );
+  }
+  // For "Relevanse", no sorting applied - it relies on MongoDB's default order (insertion order or relevance based on the query).
+
+  res.render("findData", { data, sort });
 };
 
 const rdf_render = async (req, res) => {
