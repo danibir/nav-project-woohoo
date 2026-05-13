@@ -77,6 +77,8 @@
 
 .activeFilters button:hover {
   cursor: pointer;
+  background-color: var(--blue);
+  color: var(--midnight-blue);
 }
 
 .activeFilters h2 {
@@ -180,6 +182,10 @@
 .dataPreviews p {
   color: var(--midnight-blue);
   margin: 0;
+}
+
+.dataPreview:hover {
+  border: var(--midnight-blue) 2px solid;
 }
 
 .dataPreviewInfo h2 {

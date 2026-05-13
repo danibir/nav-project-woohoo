@@ -154,16 +154,15 @@
                         <% if (dbFail) { %>
                             <p>Mangler kobling med databasen. Prøv igjen senere.</p>
                             </p>
-                            <% } else if(data && data.length> 0) { %>
-                                <% for (item of data) { %>
-                                    <%- include('./partials/findDataPreview.ejs', { rdf: item.rdf, item: item.tags }) %>
-                                        <% }; %>
-                                            <% } else { %>
-                                                <div class="noData">
-                                                    <p>Vi har for øyeblikket ingen data å vise her</p>
-                                                </div>
-
-                                                <% } %>
+                        <% } else if(data && data.length> 0) { %>
+                            <% for (item of data) { %>
+                                <%- include('./partials/findDataPreview.ejs', { rdf: item.rdf, item: item.tags }) %>
+                            <% }; %>
+                        <% } else { %>
+                            <div class="noData">
+                                <p>Vi har for øyeblikket ingen data å vise her</p>
+                            </div>
+                        <% } %>
                     </section>
                 </section>
 
