@@ -19,8 +19,13 @@
                     <div class="menu-grid">
                         <h3 class="menu-title">Ansatt</h3>
                         <ul class="dropdownLinks">
-                            <li><a href="/sign-in">Logg inn</a></li>
-                            <li><a href="/admin/create">Legg til datasett</a></li>
+                            <% if (navItems.includes('authed')) { %>
+                                <li><a href="/log-out">Logg ut</a></li>
+                                <li><a href="/admin">Legg til datasett</a></li>
+                            <% } else { %>
+                                <li><a href="/sign-in">Logg inn</a></li>
+                                </li>
+                            <% } %>
                         </ul>
                     </div>
 

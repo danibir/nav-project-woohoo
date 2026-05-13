@@ -2,7 +2,7 @@
 <%- include('../partials/background-design.ejs') %>
 <link rel="stylesheet" href="css/auth.css">
     <%- include('../partials/navigation.ejs') %>
-    <form id="sign-up">
+    <form id="sign-up" action="/sign-up" method="post">
     <div class="sign-header">
         <button class="back-arrow">
             <svg enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -23,5 +23,4 @@
         <div class="error"><%= error %></div>
         <p class="sign-p">Har du allerede en bruker? Logg inn <a class="sign-link" href="/sign-in"> her! </a></p>
     </form>
-<script src="script/auth/register.js"></script>
 <%- include('../partials/foot.ejs') %>
