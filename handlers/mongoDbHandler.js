@@ -15,7 +15,7 @@ async function connectToMongoDb() {
     }
 }
 async function connectHelper(dbIP = 'localhost', dbName = "navData") {
-    const timeUntilTimeout = 1000
+    const timeUntilTimeout = 10000
     const timeoutPromise = new Promise((_, reject) => {
         setTimeout(() => {
             reject(new Error(`Timeout: database didn't respond. (${timeUntilTimeout / 1000} seconds)`));
