@@ -456,20 +456,6 @@ footer {
 
 /* DANIEL BLOB (! TEMPORARY TAGS, PLEASE REPLACE ELEMENTS THAT USE THESE !)*/
 
-.center{
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
-}
-.flexrow{
-  display: flex;
-  flex-direction: row;
-}
-.flexcol{
-  display: flex;
-  flex-direction: column;
-}
 .visualbox {
   background-color: gainsboro;
   border-style: dotted;

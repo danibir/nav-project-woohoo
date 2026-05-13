@@ -2,20 +2,40 @@
 <%- include('./partials/navigation') %>
 <%- include('./partials/background-design.ejs') %>
 
-<div class="center flexcol">
-    <div class="flexrow">
-        <div class="flexcol">
-            <p>blahblahblah lorem ipsum lala la laaaa skriv no smart her plz</p>        
-            <a href="/admin/create">Lag ny</a>
-        </div>
-        <div class="flexcol">
-            <%- include('./partials/adminsearchField') %>
-            <section> <!--list-->
-                <% for( item of rdfdata ) { %>
-                    <%- include('./partials/adminDataPreview', { rdf: item }) %>
-                <% } %>
-            </section>
-        </div>
+<link rel="stylesheet" href="/css/adminConfig.css">
+
+<section class="adminConfigPage">
+    <div class="adminConfigPageSearch">
+        <%- include('./partials/searchField') %>
     </div>
-</div>
+    
+
+    <div class="adminConfigPageContent">
+
+        <div class="adminConfigPageActions">
+            <form class="adminConfigPageButton" action="/admin/create" method="get">
+                <button type="submit">
+                    <p>Legg til ny </p>
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.70765 8.91735C6.09745 8.30716 6.09745 7.31784 6.70765 6.70765C7.31784 6.09745 8.30716 6.09745 8.91736 6.70765L25 22.7903L41.0826 6.70765C41.6928 6.09745 42.6822 6.09745 43.2924 6.70765C43.9026 7.31784 43.9026 8.30716 43.2924 8.91735L27.2097 25L43.2924 41.0826C43.9025 41.6928 43.9025 42.6822 43.2924 43.2924C42.6822 43.9026 41.6928 43.9026 41.0826 43.2924L25 27.2097L8.91736 43.2924C8.30716 43.9026 7.31784 43.9026 6.70765 43.2924C6.09745 42.6822 6.09745 41.6928 6.70765 41.0826L22.7903 25L6.70765 8.91735Z"/>
+                    </svg>
+                </button>
+            </form>
+            <div class="adminConfigPageInfo">
+                <h3>Om Konfigurasjon</h3>
+                <p>Bruk denne siden til å administrere og søke i datasett.</p>    
+            </div> 
+        </div>
+
+        <div class="adminConfigPageResults">
+            <% for( item of rdfdata ) { %>
+                <div class="adminDataPreviews">
+                    <%- include('./partials/adminDataPreview', { rdf: item }) %>                    
+                </div>
+            <% } %>
+        </div>
+
+    </div>
+
+</section>
 <%- include('./partials/foot.ejs') %>
