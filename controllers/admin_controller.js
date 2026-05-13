@@ -5,9 +5,10 @@ const helper = require('../handlers/helperware')
 
 const index_get = async (req, res) => {
     res.locals.metatitle = "Database"
-    const rdf = await Rdf.find()
-    console.log(rdf[0])
-    res.render("adminMenu", { rdfdata: rdf })
+    const query = req.query.search || ""
+    const data = await helper.searchQuery(Rdf, query)
+
+    res.render("adminMenu", { rdfdata: data })
 }
 const create_get = async (req, res) => {
     res.locals.metatitle = "Legg til registering"
