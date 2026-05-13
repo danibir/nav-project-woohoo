@@ -1,7 +1,96 @@
+* {
+  --white: #FFFFFF;
+  --off-white: #f4f4f4;
+  --red: #A20000;
+  --midnight-blue: #001E30;
+  --dark-blue: #557089;
+  --blue: #9FB5C2;
+  --light-blue: #CCE3F1;
+  --black: #000000;
+}
+
+.sign-title {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--midnight-blue);
+    margin: 10px auto;
+}
+
+.back-arrow {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.back-arrow svg {
+    width: 25px;
+    height: 25px;
+    transform: rotate(90deg);
+
+}
+
+label {
+    color: var(--midnight-blue);
+    margin: 5px 0;
+}
+
+input {
+    background-color: var(--off-white);
+    border: solid 2px var(--dark-blue);
+}
+
+.sign-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+
 #sign-up, #sign-in{
     display: flex;
     flex-direction: column;
     align-self: center;
     align-content: center;
     margin: 10vw;
+}
+
+#sign-in, #sign-up {
+    background-color: var(--off-white);
+    padding: 10px 20px;
+    border: 2px var(--dark-blue) solid;
+
+}
+
+.sign-btn {
+    background-color: var(--dark-blue);
+    border: var(--midnight-blue) 1px solid;
+    padding: 10px 150px;
+    box-shadow: rgb(0, 0, 0, 0.8) 0px 0px 2px;
+    color: var(--white);
+    margin: 5px auto;
+    cursor: pointer;
+}
+
+.input-sign {
+    width: 500px;
+    padding: 10px;
+    margin: 20px auto;
+}
+
+.sign-p {
+    text-align: center;
+    color: var(--midnight-blue);
+}
+
+.error, .sign-link {
+    color: var(--red);
+    text-align: center;
+    margin-top: 20px;
 }
