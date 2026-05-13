@@ -4,11 +4,14 @@ const insert = require('../scripts/insertToDb')
 const helper = require('../handlers/helperware')
 
 const index_get = async (req, res) => {
-    const rdf = await Rdf.find()
-    console.log(rdf[0])
-    res.render("adminMenu", { rdfdata: rdf })
+    res.locals.metatitle = "Database"
+    const query = req.query.search || ""
+    const data = await helper.searchQuery(Rdf, query)
+
+    res.render("adminMenu", { rdfdata: data })
 }
 const create_get = async (req, res) => {
+    res.locals.metatitle = "Legg til registering"
     const data = await get_tags()
     res.render("adminCreate", { data })
 }
@@ -25,6 +28,7 @@ const create_post = async (req, res) => {
 }
 
 const edit_get = async (req, res) => {
+    res.locals.metatitle = "Rediger registering"
     const id = req.params.id.slice(1, req.params.id.length)
     console.log(id)
     try {

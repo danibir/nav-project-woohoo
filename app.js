@@ -44,7 +44,8 @@ db.connectToMongoDb()
   app.use(auth_router)
   app.use('/admin', admin_router)
   app.use((req, res) => {
-    handler.renderErrorPage(res, 404, 'Page not found.')
+    res.locals.metatitle = "404"
+    handler.renderErrorPage(res, 404, 'Kunne ikke finne side.')
   })
 
   app.listen(3000, () => {

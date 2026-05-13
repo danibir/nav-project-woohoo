@@ -1,163 +1,173 @@
 <%- include('./partials/head.ejs') %>
-<%- include('./partials/background-design.ejs') %>
+    <%- include('./partials/background-design.ejs') %>
 
-    <link rel="stylesheet" href="/css/findData.css">
+        <link rel="stylesheet" href="/css/findData.css">
 
-    <%- include('./partials/navigation.ejs') %>
+        <%- include('./partials/navigation.ejs') %>
 
-    <section class="findDataPage">
+            <section class="findDataPage">
 
 
 
-        <section class="results">
-            <section class="resultLeft">
+                <section class="results">
+                    <section class="resultLeft">
 
-                <div class="sortingField">
-                    <label for="sorting">
-                        <h2>
-                            Søket ditt ga <%= rdfList.length %> treff:
-                        </h2>
-                    </label>
-                    <select name="sorting" class="sorting" id="sorting">
-                        <option value="" selected disabled hidden>Sorter</option>
-                        <option value="">Sist publisert</option>
-                        <option value="">Relevanse</option>
-                        <option value="">A - Å</option>
-                        <option value="">Å - A</option>
-                    </select>
-                </div>
-
-                <div class="activeFilters">
-                    <button><h2>Nullstill alle filtre</h2></button>
-                </div>
-
-                <section class="chooseFilters">
-                    <div class="filterBox">
-                        <h2>Tema:</h2>
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Arbeid</h4>
+                        <div class="sortingField">
+                            <label for="sorting">
+                                <h2>
+                                    Søket ditt ga <%= data.length %> treff:
+                                </h2>
                             </label>
-                            <div>
-                                <svg class="downArrow" width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M39.4271 18.32L25.9762 31.7741L12.5253 18.3184C11.8841 17.6771 10.8466 17.6771 10.2053 18.3184C9.56567 18.9597 9.56567 19.9987 10.2053 20.64L24.8154 35.2549C25.4551 35.8962 26.4941 35.8962 27.1338 35.2549L41.7438 20.64C42.3835 19.9987 42.3835 18.958 41.7438 18.3167C41.1058 17.6787 40.0667 17.6787 39.4271 18.32Z" fill="#A20000"/>
-                                </svg>                   
-                            </div>
-                        </div>
-                        <div class="filterOption secondaryOption hidden">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Arbeidsliv</h4>
-                            </label>
-                        </div>
-                        <div class="filterOption secondaryOption hidden">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Permisjonsordninger</h4>
-                            </label>
+                            <select name="sorting" class="sorting" id="sorting">
+                                <option value="" <%=sort==="" ? "selected" : "" %> disabled hidden>Sorter</option>
+                                <option value="Sist publisert" <%=sort==="Sist publisert" ? "selected" : "" %>>Sist
+                                    publisert</option>
+                                <option value="Relevanse" <%=sort==="Relevanse" ? "selected" : "" %>>Relevanse</option>
+                                <option value="A - Å" <%=sort==="A - Å" ? "selected" : "" %>>A - Å</option>
+                                <option value="Å - A" <%=sort==="Å - A" ? "selected" : "" %>>Å - A</option>
+                            </select>
                         </div>
 
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Familie og barn</h4>
-                            </label>
-                            <div>
-                                <svg class="downArrow" width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M39.4271 18.32L25.9762 31.7741L12.5253 18.3184C11.8841 17.6771 10.8466 17.6771 10.2053 18.3184C9.56567 18.9597 9.56567 19.9987 10.2053 20.64L24.8154 35.2549C25.4551 35.8962 26.4941 35.8962 27.1338 35.2549L41.7438 20.64C42.3835 19.9987 42.3835 18.958 41.7438 18.3167C41.1058 17.6787 40.0667 17.6787 39.4271 18.32Z" fill="#A20000"/>
-                                </svg>  
-                            </div>
-                        </div>
-                        <div class="filterOption secondaryOption hidden">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Foreldre og foresatte</h4>
-                            </label>
+                        <div class="activeFilters">
+                            <button>
+                                <h2>Nullstill alle filtre</h2>
+                            </button>
                         </div>
 
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Sosiale tjenester</h4>
-                            </label>
-                        </div>
+                        <section class="chooseFilters">
+                            <div class="filterBox">
+                                <h2>Tema:</h2>
+                                <div class="filterOption">
+                                    <label class="filterTitle">
+                                        <input type="checkbox" class="realCheckbox">
+                                        <span class="customCheckbox"></span>
+                                        <h4>Arbeid</h4>
+                                    </label>
+                                    <div>
+                                        <svg class="downArrow" width="52" height="52" viewBox="0 0 52 52" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M39.4271 18.32L25.9762 31.7741L12.5253 18.3184C11.8841 17.6771 10.8466 17.6771 10.2053 18.3184C9.56567 18.9597 9.56567 19.9987 10.2053 20.64L24.8154 35.2549C25.4551 35.8962 26.4941 35.8962 27.1338 35.2549L41.7438 20.64C42.3835 19.9987 42.3835 18.958 41.7438 18.3167C41.1058 17.6787 40.0667 17.6787 39.4271 18.32Z"
+                                                fill="#A20000" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="filterOption secondaryOption hidden">
+                                    <label class="filterTitle">
+                                        <input type="checkbox" class="realCheckbox">
+                                        <span class="customCheckbox"></span>
+                                        <h4>Arbeidsliv</h4>
+                                    </label>
+                                </div>
+                                <div class="filterOption secondaryOption hidden">
+                                    <label class="filterTitle">
+                                        <input type="checkbox" class="realCheckbox">
+                                        <span class="customCheckbox"></span>
+                                        <h4>Permisjonsordninger</h4>
+                                    </label>
+                                </div>
 
-                    <div>
-                        <h2>EU-Tema:</h2>
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Forvaltning og offentlig sektor</h4>
-                            </label>
-                        </div>
+                                <div class="filterOption">
+                                    <label class="filterTitle">
+                                        <input type="checkbox" class="realCheckbox">
+                                        <span class="customCheckbox"></span>
+                                        <h4>Familie og barn</h4>
+                                    </label>
+                                    <div>
+                                        <svg class="downArrow" width="52" height="52" viewBox="0 0 52 52" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M39.4271 18.32L25.9762 31.7741L12.5253 18.3184C11.8841 17.6771 10.8466 17.6771 10.2053 18.3184C9.56567 18.9597 9.56567 19.9987 10.2053 20.64L24.8154 35.2549C25.4551 35.8962 26.4941 35.8962 27.1338 35.2549L41.7438 20.64C42.3835 19.9987 42.3835 18.958 41.7438 18.3167C41.1058 17.6787 40.0667 17.6787 39.4271 18.32Z"
+                                                fill="#A20000" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="filterOption secondaryOption hidden">
+                                    <label class="filterTitle">
+                                        <input type="checkbox" class="realCheckbox">
+                                        <span class="customCheckbox"></span>
+                                        <h4>Foreldre og foresatte</h4>
+                                    </label>
+                                </div>
 
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Befolkning og samfunn</h4>
-                            </label>
-                        </div>
+                                <div class="filterOption">
+                                    <label class="filterTitle">
+                                        <input type="checkbox" class="realCheckbox">
+                                        <span class="customCheckbox"></span>
+                                        <h4>Sosiale tjenester</h4>
+                                    </label>
+                                </div>
 
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Transport</h4>
-                            </label>
-                        </div>
+                                <div>
+                                    <h2>EU-Tema:</h2>
+                                    <div class="filterOption">
+                                        <label class="filterTitle">
+                                            <input type="checkbox" class="realCheckbox">
+                                            <span class="customCheckbox"></span>
+                                            <h4>Forvaltning og offentlig sektor</h4>
+                                        </label>
+                                    </div>
 
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Økonomi og finans</h4>
-                            </label>
-                        </div>
+                                    <div class="filterOption">
+                                        <label class="filterTitle">
+                                            <input type="checkbox" class="realCheckbox">
+                                            <span class="customCheckbox"></span>
+                                            <h4>Befolkning og samfunn</h4>
+                                        </label>
+                                    </div>
 
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Miljø</h4>
-                            </label>
-                        </div>
+                                    <div class="filterOption">
+                                        <label class="filterTitle">
+                                            <input type="checkbox" class="realCheckbox">
+                                            <span class="customCheckbox"></span>
+                                            <h4>Transport</h4>
+                                        </label>
+                                    </div>
 
-                        <div class="filterOption">
-                            <label class="filterTitle">
-                                <input type="checkbox" class="realCheckbox">
-                                <span class="customCheckbox"></span>
-                                <h4>Internasjonale temaer</h4>
-                            </label>
-                        </div>
+                                    <div class="filterOption">
+                                        <label class="filterTitle">
+                                            <input type="checkbox" class="realCheckbox">
+                                            <span class="customCheckbox"></span>
+                                            <h4>Økonomi og finans</h4>
+                                        </label>
+                                    </div>
+
+                                    <div class="filterOption">
+                                        <label class="filterTitle">
+                                            <input type="checkbox" class="realCheckbox">
+                                            <span class="customCheckbox"></span>
+                                            <h4>Miljø</h4>
+                                        </label>
+                                    </div>
+
+                                    <div class="filterOption">
+                                        <label class="filterTitle">
+                                            <input type="checkbox" class="realCheckbox">
+                                            <span class="customCheckbox"></span>
+                                            <h4>Internasjonale temaer</h4>
+                                        </label>
+                                    </div>
+                        </section>
+                    </section>
+
+                    <section class="dataPreviews">
+                        <% if (dbFail) { %>
+                            <p>Mangler kobling med databasen. Prøv igjen senere.</p>
+                            </p>
+                            <% } else if(data && data.length> 0) { %>
+                                <% for (item of data) { %>
+                                    <%- include('./partials/findDataPreview.ejs', { rdf: item.rdf, item: item.tags }) %>
+                                        <% }; %>
+                                            <% } else { %>
+                                                <div class="noData">
+                                                    <p>Vi har for øyeblikket ingen data å vise her</p>
+                                                </div>
+
+                                                <% } %>
                     </section>
                 </section>
 
-                <section class="dataPreviews">
-                    <% if (dbFail) { %>
-                        <p>Mangler kobling med databasen. Prøv igjen senere.</p></p>
-                    <% } else if(rdfList && rdfList.length> 0) { %>
-                        <% rdfList.forEach(rdf=> { console.log(rdf)%>
-                            <%- include('./partials/findDataPreview.ejs', {rdf}) %>
-                        <% }); %>
-                    <% } else { %>
-                        <div class="noData">
-                            <p>Vi har for øyeblikket ingen data å vise her</p>
-                        </div>
-                        
-                    <% } %>
-                </section>
+                <script src="/script/frontend.js"></script>
+
+                <%- include('./partials/foot.ejs') %>
             </section>
-
-            <script src="/script/frontend.js"></script>
-
-            <%- include('./partials/foot.ejs') %>
-        </section>

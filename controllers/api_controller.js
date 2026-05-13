@@ -4,7 +4,7 @@ const RDF = require('../rdf/rdf')
 
 const get_all = async (req, res) => {
     if (!req.isDBConnected) {
-        return res.write('Database not available')
+        return res.write('Kunne ikke finne database')
     }
     const query = req.query.search || ""
     let data = []

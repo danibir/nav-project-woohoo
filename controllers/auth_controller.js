@@ -1,66 +1,73 @@
 //Required Models
-const User = require("../models/User.js");
+const User = require("../models/User.js")
 const jwt = require("jsonwebtoken")
 
 //Variables
 const maxValidDate = 24*60*60
 
-
-//Controllers
-const signJWt = (id)=>{
+//Functions
+const signJWt = (id) => {
     return jwt.sign({id}, process.env.secret, {
         expiresIn:maxValidDate
     })
 }
-const sign_in_render = (req, res) => {
-  try {
-    res.render("auth/login");
-  } catch (err) {
-    res.status(500).send({ err });
-  }
-};
 
-const sign_in = async(req,res)=>{
-    const {username, passwd, key} = req.body
-    try{
-    if(key === process.env.authKey){
-    console.log("Key matched")
-    const userId = await User.login(username,passwd);
-    const token = signJWt(userId)
-    res.cookie("admin", token, {httpOnly: true, maxAge: maxValidDate *1000})
-    res.status(200).json({success:true});
-    }else{
-    throw Error("The Provided Key Is Not Right");
-    }
-    }catch(err){
-    console.log(err)
-    res.status(301).json({err: err.message});
+//Controllers
+const login_get = (req, res) => {
+    res.locals.metatitle = "Logg inn"
+    res.render("auth/login")
+}
+
+
+const login_post = async(req, res) => {
+    const genericfail = "Brukernavn eller passord stemmer ikke."
+    const {username, passwd} = req.body
+    try {
+        const userId = await User.login(username, passwd)
+        if (!userId.success) {
+            res.locals.error = genericfail
+            return res.render('auth/login')
+        }
+        const token = signJWt(userId.result)
+        res.cookie("admin", token, { httpOnly: true, maxAge: maxValidDate *1000 })
+        res.status(200).redirect('/')
+    } catch(err) {
+        console.log(err)
+        res.locals.error = "Noe gikk galt. Prøv igjen senere."
+        return res.render('auth/login')
     }
 }
 
-const sign_up_render = (req,res)=>{
-    try{
-        res.render("auth/register")
-    }catch(err){
-        console.log(err)
-        res.status(500).send({err})
-    }
+const signup_get = (req, res) => {
+    res.locals.metatitle = "Registrer"
+    res.render("auth/register")
 }
 
-const sign_up = async(req,res)=>{
-    const {username, passwd, key} = req.body
-    try{
-    if(key === process.env.authKey){
-    const userId = await User.register(username,passwd)
-    const token = signJWt(userId)
-    res.cookie("admin", token, {httpOnly: true, maxAge: maxValidDate *1000})
-    res.status(200).json({success:true})
-    }else{
-        throw Error("The Provided Key Is Not Right")
-    }
-    }catch(err){
+const signup_post = async(req,res) => {
+    const {username, passwd, passwdtest, key} = req.body
+    try {
+        if (passwd !== passwdtest) {
+            res.locals.error = "Passord stemmer ikke"
+            return res.render('auth/register')
+        }
+        if (key !== process.env.authKey) {
+            res.locals.error = "Ugyldig nøkkel."
+            return res.render('auth/register')
+        }
+        const userExists = await User.exists({ name: username })
+        if (userExists) {
+            res.locals.error = "Brukernavn er allerede tatt."
+            return res.render('auth/register')
+        }
+        const userId = await User.register(username,passwd)
+        const token = signJWt(userId)
+        res.cookie("admin", token, {httpOnly: true, maxAge: maxValidDate *1000})
+        res.status(200).redirect('/')
+            
+    } catch(err) {
         console.log(err)
-        res.status(301).json({err: err.message})
+        res.locals.error = "Noe gikk galt. Prøv igjen senere."
+        return res.render('auth/register')
     }
 }
 
@@ -70,9 +77,9 @@ const log_out = (req, res) => {
 }
 
 module.exports = {
-    sign_in_render,
-    sign_in,
-    sign_up_render,
-    sign_up,
+    login_get,
+    login_post,
+    signup_get,
+    signup_post,
     log_out
-};
+}

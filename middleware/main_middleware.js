@@ -4,6 +4,8 @@ const han = require('../handlers/helperware')
 // - feel free to add more variables
 const setLocals = (req, res, next) => {
     res.locals.navItems = []
+    res.locals.metatitle = "Ukjent side"
+    res.locals.error = ""
     next()
 }
 
@@ -29,7 +31,7 @@ const dbSetStatus = (status) => (req, res, next) => {
 
 const dbReject503 = (req, res, next) => {
     if (!req.isDBConnected){
-        return han.renderErrorPage(res, 503, "Service unavailable: database is unavailable, come back later.")
+        return han.renderErrorPage(res, 503, "Tjenesten er utilgjengelig: databasen er nede, kom tilbake senere.")
     }
     next()
 }

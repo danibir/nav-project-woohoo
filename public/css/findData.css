@@ -24,10 +24,11 @@
 
 .sortingField h2 {
   font-weight: 100;
+  font-size: 1.2rem;
 }
 
 .sortingField option {
-  background-color: var(--white);
+  background-color: var(--dark-blue);
 }
 
 .sorting {
@@ -58,15 +59,20 @@
   width: 30%;
 }
 
+.activeFilters {
+  width: 100%;
+}
+
 .activeFilters button {
   background-color: var(--dark-blue);
+  margin: 10px;
+  text-align: left;
+  padding: 10px;
   border: var(--midnight-blue) 1px solid;
   border-radius: 3px;
   color: var(--white);
+  height: 50px;
   width: 100%;
-  margin: 10px;
-  text-align: left;
-  padding-left: 20px;
 }
 
 .activeFilters button:hover {
@@ -75,6 +81,8 @@
 
 .activeFilters h2 {
   font-weight: 100;
+  width: fit-content;
+  margin: 0;
 }
 
 .chooseFilters {
@@ -87,6 +95,7 @@
   border-radius: 5px;
   margin: 10px;
   padding: 0 10px;
+  width: 100%;
 }
 
 .filterBox h2 {
@@ -114,8 +123,6 @@
   align-items: center;
 }
 
-
-
 .filterTitle:hover {
   cursor: pointer;
 }
@@ -125,23 +132,15 @@
 }
 
 .customCheckbox {
-  width: 30px;
-  height: 30px;
-  background: url("/img/icons/uncheckedBox.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background: url("/img/icons/unchecked.svg") center/contain no-repeat;
   display: inline-block;
+  margin-right: 10px;
 }
 
 .realCheckbox:checked + .customCheckbox {
-  background: url("/img/icons/checkbox.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 20px;
-  width: 20px;
-  margin: 0 5px;
+  background: url("/img/icons/check.svg") center/contain no-repeat;
 }
 
 .secondaryOption {
@@ -158,4 +157,60 @@
 
 .downArrow.rotated {
   transform: rotate(180deg);
+}
+
+/* datapreview partial */
+
+.dataPreview {
+  margin: 20px;
+  padding: 10px;
+  background-color: var(--white);
+  border: var(--dark-blue) 2px solid;
+  border-radius: 5px;
+}
+
+.dataPreviews {
+  width: 90%;
+}
+
+.dataPreviews a {
+  text-decoration: none;
+}
+
+.dataPreviews p {
+  color: var(--midnight-blue);
+  margin: 0;
+}
+
+.dataPreviewInfo h2 {
+  color: var(--midnight-blue);
+  margin-bottom: 0;
+}
+
+.dataPreviewInfo {
+  padding: 0 20px;
+}
+
+.dataPreInfo {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  color: var(--midnight-blue);
+  margin: 0;
+  height: fit-content;
+}
+
+.dataPreTags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.dataPreTag {
+  background-color: var(--blue);
+  width: fit-content;
+  padding: 10px;
+  border: var(--midnight-blue) 1px solid;
+  border-radius: 3px;
+  color: var(--midnight-blue);
 }

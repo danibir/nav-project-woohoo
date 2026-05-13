@@ -16,9 +16,8 @@
         <label for="passwd">Passord:</label>
         <input class="input-sign" type="password" name="passwd" id="passwd" placeholder="Skriv inn Passord...">
         <button class="sign-btn" type="submit">Logg inn</button>
-        <div class="error"></div>
+        <div class="error"><%= error %></div>
         <p class="sign-p">Har du ikke en bruker? Registrer deg <a class="sign-link" href="/sign-up"> her! </a></p>
     </form>
 
-<script src="script/auth/login.js"></script>
 <%- include('../partials/foot.ejs') %>
