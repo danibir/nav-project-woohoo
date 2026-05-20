@@ -1,0 +1,94 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/background-design.ejs') %>
+<%- include('./partials/navigation.ejs') %>
+    
+<section class="full-page detailsPage datasetPage">
+    <link rel="stylesheet" href="/css/dataset.css">
+
+    <section class="datasetNavbar">
+        <a href="/oversikt/<%= rdfdata.title.object.nb %>">Oversikt</a>
+        <a href="/detaljer/<%= rdfdata.title.object.nb %>">Detaljer</a>
+    </section>
+
+    <h1><%= rdfdata.title.object.nb %></h1>
+
+    <div class="detailBox">
+        <h2>Om Datasettet</h2>
+        <div class="topInfo">
+            <div>
+                <div class="detailBoxInfo">
+                    <h3>Publisert:</h3>
+                    <p><%= rdfdata.issued.object %></p>
+                </div>
+                <div class="detailBoxInfo">
+                    <h3>Sist Oppdatert:</h3>
+                    <p><%= rdfdata.modified.object %></p>
+                </div>            
+            </div>
+
+            <div>
+                <div class="detailBoxInfo">
+                    <h3>URI:</h3>
+                    <% if(rdfdata.primaryTopic) { %>
+                            <p><%= rdfdata.primaryTopic.object %></p>
+                    <% } else { %>
+                            <p>Ikke oppgitt</p>
+                    <% } %>
+                </div>
+                <div class="detailBoxInfo">
+                    <h3>Landingsside:</h3>
+                    <% if(rdfdata.landingPage) { %>
+                            <p><%= rdfdata.landingPage.object %></p>
+                    <% } else { %>
+                            <p>Ikke oppgitt</p>
+                    <% } %>
+                </div>            
+            </div>
+        </div>
+    </div>
+
+    <div class="midInfo">
+        <div class="detailBox">
+            <h2>Tema</h2>
+            <div class="dataTags">
+                <% entry.tags.forEach(tag => { %>
+                    <div class="dataTag">
+                        <%= tag %> 
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+
+        <div class="detailBox">
+            <h2>Kontaktinformasjon</h2>
+            <div class="detailBoxInfo">
+                <h3>Kontaktpunkt:</h3>
+                <% if(rdfdata.fn) { %>
+                        <p><%= rdfdata.fn.object.nb %></p>
+                <% } else { %>
+                        <p>Ikke oppgitt</p>
+                <% } %>
+            </div>
+            <div class="detailBoxInfo">
+                <h3>E-post:</h3>
+                <% if(rdfdata.hasEmail) { %>
+                        <p><%= rdfdata.hasEmail.object %></p>
+                <% } else { %>
+                        <p>Ikke oppgitt</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <section class="detailBox distributions">
+        <h2>Distrubisjoner</h2>
+        <% if(rdfdata.dataset) { %>
+            <% rdfdata.dataset.object.forEach(dataset => { %>
+                <%= dataset %>
+            <% }); %>
+        <% } %>
+    </section>
+
+</section>
+
+<%- include('./partials/foot.ejs') %>

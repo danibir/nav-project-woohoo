@@ -68,27 +68,51 @@ const rdf_render = async (req, res) => {
   res.render("tempRDF", { rdf: rdfinfo });
 };
 
-const info_render = async (req, res) => {
+const overview_render = async (req, res) => {
   let subject = req.params.name;
   console.log(subject);
-  Rdf.find({ "title.object.nb": { $regex: subject, $options: "i" } })
+  Rdf.findOne({ "title.object.nb": { $regex: subject, $options: "i" } })
     .then(async (resu) => {
       if (resu.length == 0) {
         console.log("not found");
         console.log(resu);
-        return helper.renderErrorPage(res, 404, "Page not");
+        return helper.renderErrorPage(res, 404, "Finner ikke siden");
       } else {
         console.log("found");
-        console.log(resu[0]);
-        const rdfdata = await rdf.getRDF(resu[0].url);
+        console.log(resu);
+        const rdfdata = await rdf.getRDF(resu.url);
         console.log(rdfdata);
         res.locals.metatitle = subject;
-        res.render("info", { title: subject, rdfdata });
+        res.render("overview", { title: subject, rdfdata, entry: resu });
       }
     })
     .catch((err) => {
       console.log(`datapage error: ${err}`);
-      res.redirect("/rdf");
+      return helper.renderErrorPage(res, 404, "Finner ikke siden");
+    });
+};
+
+const details_render = async (req, res) => {
+  let subject = req.params.name;
+  console.log(subject);
+  Rdf.findOne({ "title.object.nb": { $regex: subject, $options: "i" } })
+    .then(async (resu) => {
+      if (resu.length == 0) {
+        console.log("not found");
+        console.log(resu);
+        return helper.renderErrorPage(res, 404, "Finner ikke siden");
+      } else {
+        console.log("found");
+        console.log(resu);
+        const rdfdata = await rdf.getRDF(resu.url);
+        console.log(rdfdata);
+        res.locals.metatitle = subject;
+        res.render("details", { title: subject, rdfdata, entry: resu });
+      }
+    })
+    .catch((err) => {
+      console.log(`datapage error: ${err}`);
+      return helper.renderErrorPage(res, 404, "Finner ikke siden");
     });
 };
 
@@ -96,5 +120,6 @@ module.exports = {
   index_render,
   findData_render,
   rdf_render,
-  info_render,
+  overview_render,
+  details_render,
 };

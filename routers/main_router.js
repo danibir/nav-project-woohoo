@@ -11,7 +11,8 @@ const mid = require('../middleware/main_middleware.js')
 router.get("/", controller.index_render)
 router.get("/findData", mid.addNavItems('search'), controller.findData_render)
 router.get("/rdf", controller.rdf_render)
-router.get('/info/:name', mid.dbReject503, controller.info_render);
+router.get('/oversikt/:name', mid.dbReject503, controller.overview_render);
+router.get('/detaljer/:name', mid.dbReject503, controller.details_render);
 
 
 module.exports = router

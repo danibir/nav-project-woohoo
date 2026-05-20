@@ -1,7 +1,7 @@
 <% if (rdf.title.object.nb) { %>
 
     <section class="dataPreview" data-tema="<%= Array.isArray(item) ? item.join(',') : item %>">
-        <a href="/info/<%= rdf.title.object.nb[0] %>">
+        <a href="/oversikt/<%= rdf.title.object.nb[0] %>">
             <div class="dataPreviewInfo">
                 <div class="dataPreTitle">
                     <h2>
@@ -13,12 +13,12 @@
                         <%= rdf.description.object.nb %>
                     </p>
                 </div>
-                <div class="dataPreTags">
+                <div class="dataTags">
                     <% for(tag of item) { %>
-                        <div class="dataPreTag">
+                        <div class="dataTag">
                             <%= tag %>
                         </div>
-                        <% } %>
+                    <% } %>
                 </div>
             </div>
         </a>
