@@ -6,6 +6,7 @@ const os = require('os');
 const app = express()
 const morgan = require('morgan')
 require("dotenv").config();
+require('./cron/updateRdfDb')
 
 //Handlers
 const db = require('./handlers/mongoDbHandler')

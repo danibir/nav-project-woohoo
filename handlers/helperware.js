@@ -6,14 +6,9 @@ const renderErrorPage = (res, code, message) => {
 const searchQuery = async (model, query) => {
     if (query.trim() !== "") {
         const searchPattern = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") //security meassure apparently (removes injection-like keys)
-        data = await model.find({
-          $and: [
-            { "title.object.nb": { $regex: searchPattern, $options: "i" } },
-            { "title.object.en": { $regex: searchPattern, $options: "i" } },
-          ],
-        })
+        data = await model.find({ "title.object.nb": { $regex: searchPattern, $options: "i" } }).lean()
       } else {
-        data = await model.find({})
+        data = await model.find({}).lean()
       }
     return data
 }
