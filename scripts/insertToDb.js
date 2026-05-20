@@ -9,12 +9,14 @@ const addToDb = async (url, tags) => {
     const isOccupied = await NavData.exists({ url: url })
     console.log(rdfData.title)
     let titles = rdfData.title
+    let descriptions = rdfData.description
     console.log(`( ${rdfData.title} )`)
     if (!isOccupied)
     {
         console.log('Adding url...')
         const obj = {
             title: titles,
+            description: descriptions,
             url: url,
             tags: tags
         }
