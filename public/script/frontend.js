@@ -146,7 +146,7 @@ function filterResults() {
       return;
     }
 
-    const matches = selectedFilters.some((filter) => tags.includes(filter));
+    const matches = selectedFilters.every((filter) => tags.includes(filter));
 
     item.style.display = matches ? "block" : "none";
     console.log("Tags:", tags);

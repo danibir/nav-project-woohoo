@@ -67,52 +67,47 @@ const rdf_render = async (req, res) => {
 };
 
 const overview_render = async (req, res) => {
-  let subject = req.params.name;
-  console.log(subject);
-  Rdf.findOne({ "title.object.nb": { $regex: subject, $options: "i" } })
-    .then(async (resu) => {
-      if (resu.length == 0) {
-        console.log("not found");
-        console.log(resu);
-        return helper.renderErrorPage(res, 404, "Finner ikke siden");
-      } else {
-        console.log("found");
-        console.log(resu);
-        const rdfdata = await rdf.getRDF(resu.url);
-        console.log(rdfdata);
-        res.locals.metatitle = subject;
-        res.render("overview", { title: subject, rdfdata, entry: resu });
-      }
-    })
-    .catch((err) => {
-      console.log(`datapage error: ${err}`);
-      return helper.renderErrorPage(res, 404, "Finner ikke siden");
-    });
-};
+  let subject = req.params.name
+  console.log(subject)
+  const data = await Rdf.findOne({ "title.object.nb": { $regex: subject, $options: "i" } })
+  try {
+    if (!data) {
+      console.log("not found");
+      return helper.renderErrorPage(res, 404, "Finner ikke siden")
+    } else {
+      console.log("found");
+      const rdfdata = await rdf.getRDF(data.url)
+      const cleandata = helper.trimRdfdata(rdfdata)
+      res.locals.metatitle = subject;
+      res.render("overview", { title: subject, rdfdata: cleandata, entry: data })
+    }
+  } catch(err) {
+    console.log(`datapage error: ${err}`)
+    return helper.renderErrorPage(res, 500, "Intern server feil")
+  }
+}
 
 const details_render = async (req, res) => {
-  let subject = req.params.name;
-  console.log(subject);
-  Rdf.findOne({ "title.object.nb": { $regex: subject, $options: "i" } })
-    .then(async (resu) => {
-      if (resu.length == 0) {
-        console.log("not found");
-        console.log(resu);
-        return helper.renderErrorPage(res, 404, "Finner ikke siden");
-      } else {
-        console.log("found");
-        console.log(resu);
-        const rdfdata = await rdf.getRDF(resu.url);
-        console.log(rdfdata);
-        res.locals.metatitle = subject;
-        res.render("details", { title: subject, rdfdata, entry: resu });
-      }
-    })
-    .catch((err) => {
-      console.log(`datapage error: ${err}`);
-      return helper.renderErrorPage(res, 404, "Finner ikke siden");
-    });
-};
+  let subject = req.params.name
+  console.log(subject)
+  const data = await Rdf.findOne({ "title.object.nb": { $regex: subject, $options: "i" } })
+  try {
+    if (!data) {
+      console.log("not found")
+      console.log(data)
+      return helper.renderErrorPage(res, 404, "Finner ikke siden")
+    } else {
+      console.log("found")
+      const rdfdata = await rdf.getRDF(data.url)
+      const cleandata = helper.trimRdfdata(rdfdata)
+      res.locals.metatitle = subject
+      res.render("details", { title: subject, rdfdata: cleandata, entry: data })
+    }
+  } catch(err) {
+    console.log(`datapage error: ${err}`)
+    return helper.renderErrorPage(res, 500, "Intern server feil")
+  }
+}
 
 module.exports = {
   index_render,
