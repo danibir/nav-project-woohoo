@@ -1,0 +1,49 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/background-design.ejs') %>
+<%- include('./partials/navigation.ejs') %>
+    
+<section class="full-page overviewPage datasetPage">
+        <link rel="stylesheet" href="/css/dataset.css">
+
+        <section class="datasetNavbar">
+                <a href="/oversikt/<%= rdfdata.title.object.nb %>">Oversikt</a>
+                <a href="/detaljer/<%= rdfdata.title.object.nb %>">Detaljer</a>
+        </section>
+
+        <h1><%= rdfdata.title.object.nb %></h1>
+        <h2>Beskrivelse</h2>
+        <p><%= rdfdata.description.object.nb %></p>
+        <h2>Tema</h2>
+        <p><%= entry.tags %></p>
+        <h2>Opprettelse</h2>
+        <section>
+                <div>
+                        <h3>Først Utgitt::</h3>
+                        <p><%= rdfdata.issued.object %></p>
+                </div>
+                <div>
+                        <h3>Sist Oppdatert:</h3>
+                        <p><%= rdfdata.modified.object %></p>
+                </div>
+        </section>
+        <h2>Lenker</h2>
+        <div>
+                <h3>Landingsside:</h3>
+                <% if(rdfdata.landingPage) { %>
+                        <p><%= rdfdata.landingPage.object %></p>
+                <% } else { %>
+                        <p>Ikke oppgitt</p>
+                <% } %>
+        </div>
+        <div>
+                <h3>URI:</h3>
+                <% if(rdfdata.primaryTopic) { %>
+                        <p><%= rdfdata.primaryTopic.object %></p>
+                <% } else { %>
+                        <p>Ikke oppgitt</p>
+                <% } %>
+        </div>
+
+</section>
+
+<%- include('./partials/foot.ejs') %>

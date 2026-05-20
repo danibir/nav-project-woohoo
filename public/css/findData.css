@@ -205,18 +205,3 @@
   margin: 0;
   height: fit-content;
 }
-
-.dataPreTags {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.dataPreTag {
-  background-color: var(--blue);
-  width: fit-content;
-  padding: 10px;
-  border: var(--midnight-blue) 1px solid;
-  border-radius: 3px;
-  color: var(--midnight-blue);
-}

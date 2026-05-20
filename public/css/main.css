@@ -22,7 +22,7 @@ body {
 }
 
 .full-page {
-  margin-top: 70px;
+  margin-top: 100px;
 }
 
 .lines {
@@ -473,6 +473,23 @@ footer {
   border: var(--dark-blue) 2px solid;
   border-radius: 10px;
   padding: 0;
+}
+
+/* Dataset tags */
+
+.dataTags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.dataTag {
+  background-color: var(--blue);
+  width: fit-content;
+  padding: 10px;
+  border: var(--midnight-blue) 1px solid;
+  border-radius: 3px;
+  color: var(--midnight-blue);
 }
 
 /* DANIEL BLOB (! TEMPORARY TAGS, PLEASE REPLACE ELEMENTS THAT USE THESE !)*/

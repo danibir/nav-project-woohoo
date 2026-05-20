@@ -1,7 +1,7 @@
 <% if (item.title.object.nb) { %>
 
     <section class="dataPreview" data-tema="<%= Array.isArray(item.tags) ? item.tags.join(',') : item.tags %>">
-        <a href="/info/<%= item.title.object.nb[0] %>">
+        <a href="/oversikt/<%= item.title.object.nb[0] %>">
             <div class="dataPreviewInfo">
                 <div class="dataPreTitle">
                     <h2>
@@ -13,12 +13,12 @@
                         <%= item.description.object.nb %>
                     </p>
                 </div>
-                <div class="dataPreTags">
+                <div class="dataTags">
                     <% for(tag of item.tags) { %>
-                        <div class="dataPreTag">
+                        <div class="dataTag">
                             <%= tag %>
                         </div>
-                        <% } %>
+                    <% } %>
                 </div>
             </div>
         </a>

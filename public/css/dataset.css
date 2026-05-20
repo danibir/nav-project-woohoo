@@ -1,0 +1,33 @@
+.datasetPage {
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Details page*/
+
+.topInfo {
+    display: flex;
+}
+
+.midInfo {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.detailBox {
+    background-color: var(--off-white);
+    border: var(--dark-blue) 1px solid;
+    border-radius: 3px;
+    padding: 20px;
+    margin: 10px;
+    width: 100%;
+}
+
+.detailBoxInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
