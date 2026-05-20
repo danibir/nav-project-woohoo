@@ -6,43 +6,74 @@
         <link rel="stylesheet" href="/css/dataset.css">
 
         <section class="datasetNavbar">
-                <a href="/oversikt/<%= rdfdata.title.object.nb %>">Oversikt</a>
+                <a class="active" href="/oversikt/<%= rdfdata.title.object.nb %>">Oversikt</a>
                 <a href="/detaljer/<%= rdfdata.title.object.nb %>">Detaljer</a>
         </section>
 
         <h1><%= rdfdata.title.object.nb %></h1>
-        <h2>Beskrivelse</h2>
-        <p><%= rdfdata.description.object.nb %></p>
-        <h2>Tema</h2>
-        <p><%= entry.tags %></p>
-        <h2>Opprettelse</h2>
-        <section>
-                <div>
-                        <h3>Først Utgitt::</h3>
-                        <p><%= rdfdata.issued.object %></p>
-                </div>
-                <div>
-                        <h3>Sist Oppdatert:</h3>
-                        <p><%= rdfdata.modified.object %></p>
-                </div>
-        </section>
-        <h2>Lenker</h2>
-        <div>
-                <h3>Landingsside:</h3>
-                <% if(rdfdata.landingPage) { %>
-                        <p><%= rdfdata.landingPage.object %></p>
-                <% } else { %>
-                        <p>Ikke oppgitt</p>
-                <% } %>
+
+        <div class="topInfo">
+                <div class="detailBox">
+                        <h2>Beskrivelse</h2>
+                        <p><%= rdfdata.description.object.nb %></p>                
+                </div>                
         </div>
-        <div>
-                <h3>URI:</h3>
-                <% if(rdfdata.primaryTopic) { %>
-                        <p><%= rdfdata.primaryTopic.object %></p>
-                <% } else { %>
-                        <p>Ikke oppgitt</p>
-                <% } %>
+
+
+        <div class="midInfo">
+                <div class="detailBox">
+                        <h2>Tema</h2>
+                        <div class="dataTags">
+                                <% entry.tags.forEach(tag => { %>
+                                        <div class="dataTag">
+                                                <%= tag %> 
+                                        </div>
+                                <% }); %>
+                        </div>                
+                </div>                
         </div>
+
+
+        <div class="midInfo">
+                <div class="detailBox">
+                        <h2>Opprettelse</h2>
+                        <section class="detailBoxInfo">
+                                <div class="detailBoxInfo">
+                                        <h3>Først Utgitt:</h3>
+                                        <p><%= rdfdata.issued.object %></p>
+                                </div>
+                                <div class="detailBoxInfo">
+                                        <h3>Sist Oppdatert:</h3>
+                                        <p><%= rdfdata.modified.object %></p>
+                                </div>
+                        </section>                
+                </div>                
+        </div>
+
+
+        <div class="bottomInfo">
+                <div class="detailBox">
+                        <h2>Lenker</h2>
+                        <div class="detailBoxInfo">
+                                <h3>Landingsside:</h3>
+                                <% if(rdfdata.landingPage) { %>
+                                        <a href="<%= rdfdata.landingPage.object %>"><%= rdfdata.landingPage.object %></a>
+                                <% } else { %>
+                                        <p class="unavailable">Ikke oppgitt</p>
+                                <% } %>
+                        </div>
+                        <div class="detailBoxInfo">
+                                <h3>URI:</h3>
+                                <% if(rdfdata.primaryTopic) { %>
+                                        <a href="<%= rdfdata.primaryTopic.object %>"><%= rdfdata.primaryTopic.object %></a>
+                                <% } else { %>
+                                        <p class="unavailable">Ikke oppgitt</p>
+                                <% } %>
+                        </div>                
+                </div>                
+        </div>
+
+
 
 </section>
 

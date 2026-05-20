@@ -5,16 +5,22 @@
     flex-direction: column;
 }
 
-/* Details page*/
-
-.topInfo {
+.datasetNavbar {
     display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
-.midInfo {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.datasetNavbar a {
+    text-decoration: none;
+    color: var(--midnight-blue);
+}
+
+.datasetNavbar .active {
+    background-color: var(--red);
+    color: var(--off-white);
+    padding: 10px;
+    border-radius: 3px;
 }
 
 .detailBox {
@@ -30,4 +36,44 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.detailBox a {
+    color: var(--midnight-blue);
+}
+
+.unavailable {
+    color: var(--dark-blue);
+    font-style: italic;
+}
+
+/* Details page*/
+
+.topInfo {
+    display: flex;
+}
+
+.midInfo {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bottomInfo {
+    display: flex;
+}
+
+.distributions {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.distr {
+    margin: 30px auto;
+    text-align: left;
+}
+
+.distr a {
+    color: var(--midnight-blue);
 }
