@@ -377,6 +377,15 @@ input#search {
   font-size: 5rem;
 }
 
+/*NO DATA in FindData page*/
+.noData {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top:  40%;
+}
+
+
 /* FOOTER */
 
 footer {

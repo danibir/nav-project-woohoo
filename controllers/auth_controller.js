@@ -44,9 +44,9 @@ const signup_get = (req, res) => {
 }
 
 const signup_post = async(req,res) => {
-    const {username, passwd, passwdtest, key} = req.body
+    const {username, passwd, passwd2, key} = req.body
     try {
-        if (passwd !== passwdtest) {
+        if (passwd !== passwd2) {
             res.locals.error = "Passord stemmer ikke"
             return res.render('auth/register')
         }

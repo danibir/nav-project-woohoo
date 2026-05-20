@@ -6,6 +6,10 @@ const dataSchema = new Schema({
     type: Object,
     required: true
   },
+  description: {
+    type: Object,
+    required: true
+  },
   url: {
     type: String,
     required: true

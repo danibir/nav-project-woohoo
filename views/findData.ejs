@@ -156,7 +156,7 @@
                             </p>
                         <% } else if(data && data.length> 0) { %>
                             <% for (item of data) { %>
-                                <%- include('./partials/findDataPreview.ejs', { rdf: item.rdf, item: item.tags }) %>
+                                <%- include('./partials/findDataPreview.ejs', { item }) %>
                             <% }; %>
                         <% } else { %>
                             <div class="noData">

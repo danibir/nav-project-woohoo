@@ -30,34 +30,32 @@ const findData_render = async (req, res) => {
   if (!req.isDBConnected) {
     return res.render("findData", { data: [], sort });
   }
-  let data = [];
 
-  const searchResults = await helper.searchQuery(Rdf, query);
-  data = searchResults;
-
-  for (dataItem of data) {
-    dataItem.rdf = await rdf.getRDF(dataItem.url);
-  }
+  let data = await helper.searchQuery(Rdf, query);
 
   // Sorting logic
   if (sort === "Sist publisert") {
     data.sort((a, b) => b._id.getTimestamp() - a._id.getTimestamp());
   } else if (sort === "A - Å") {
     data.sort((a, b) =>
-      (a.rdf.title?.object?.nb?.[0] || "").localeCompare(
-        b.rdf.title?.object?.nb?.[0] || "",
+      (a.title?.object?.nb?.[0] || "").localeCompare(
+        b.title?.object?.nb?.[0] || "",
       ),
     );
   } else if (sort === "Å - A") {
     data.sort((a, b) =>
-      (b.rdf.title?.object?.nb?.[0] || "").localeCompare(
-        a.rdf.title?.object?.nb?.[0] || "",
+      (b.title?.object?.nb?.[0] || "").localeCompare(
+        a.title?.object?.nb?.[0] || "",
       ),
     );
   }
   // For "Relevanse", no sorting applied - it relies on MongoDB's default order (insertion order or relevance based on the query).
-
-  res.render("findData", { data, sort });
+  // page logic
+  const page = 0 // use this to pick page // assign it with a parameter or something
+  const pagesize = 5
+  const pagecount = Math.ceil(data.length / pagesize) //max amount of pages
+  data = data.slice(0 + page * pagesize, pagesize + page * pagesize)
+  res.render("findData", { data, sort, pagecount });
 };
 
 const rdf_render = async (req, res) => {
