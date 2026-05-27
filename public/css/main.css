@@ -491,7 +491,39 @@ footer {
   border-radius: 3px;
   color: var(--midnight-blue);
 }
+/* pagescroll */
 
+.scrollOuter {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.scrollBox {
+  background-color: var(--light-blue);
+  border-color: var(--blue);
+  border-style: solid;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 200px;
+}
+.scrollBox svg {
+  fill: var(--dark-blue);
+}
+.scrollBox svg:not(.scrollInactive):hover {
+  fill: var(--midnight-blue);
+}
+.scrollBox .scrollInactive {
+  fill: var(--blue)
+}
+.scrollLeftArrow1 {
+  transform: rotate(180deg);
+}
+.scrollLeftArrow2 {
+  transform: rotate(180deg);
+}
 /* DANIEL BLOB (! TEMPORARY TAGS, PLEASE REPLACE ELEMENTS THAT USE THESE !)*/
 
 .visualbox {

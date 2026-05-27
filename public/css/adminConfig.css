@@ -67,6 +67,7 @@
     flex-direction: column;
     gap: 20px;
     margin: 20px;
+    width: 50vw;
 }
 .adminConfigPageResults a {
     text-decoration: none;
@@ -78,6 +79,7 @@
     border: var(--dark-blue) 2px solid;
     border-radius: 3px;
     padding: 0 10px;
+    width: 100%;
 }
 
 .adminDataPreviews:hover {
