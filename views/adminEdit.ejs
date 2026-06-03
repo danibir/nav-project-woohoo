@@ -3,22 +3,29 @@
 <%- include('./partials/background-design.ejs') %>
 
 <section class="full-page">
+    <link rel="stylesheet" href="/css/adminConfig.css">
     <input type="hidden" id="data-data" name="data-data" value='<%- JSON.stringify(tags)%>' %>
 
-    <div class="center flexcol">
-        <div class="flexcol visualbox">
-            <h2><%= title %></h2>
-            <h3><%= rdfItem.url %></h3>
-            <form action="/admin/config/:<%= id %>" method="post">
-                
-                <%- include('./partials/anysearch.ejs', { datalist: tags, array: rdfItem.tags, name: "data", require: 'any' }) %>
-            
-                <button>Lagre</button>
-            </form>
-            <form action="/admin/delete/:<%= id %>" method="post">
-                <button>Slett</button>
-            </form>
-        </div>
+    <div>
+        <form class="adminForm" action="/admin/config/:<%= id %>" method="post">
+            <div class="adminFormInput">
+                <div class="adminFormInpBox">
+                    <h2><%= title %></h2>
+                    <h3><%= rdfItem.url %></h3>
+                    <p><%= rdfItem.description.object.nb %></p>                    
+                </div>
+
+                <div class="adminFormInpBox">
+                    <%- include('./partials/anysearch.ejs', { datalist: tags, array: rdfItem.tags, name: "data", require: 'any' }) %>    
+                </div>
+            </div>
+
+            <button class="adminFormButton">Lagre</button>
+        </form>
+
+        <form class="adminForm" action="/admin/delete/:<%= id %>" method="post">
+            <button class="adminFormButton adminFormButtonDel">Slett</button>
+        </form>
     </div>
 
 

@@ -491,18 +491,3 @@ footer {
   border-radius: 3px;
   color: var(--midnight-blue);
 }
-
-/* DANIEL BLOB (! TEMPORARY TAGS, PLEASE REPLACE ELEMENTS THAT USE THESE !)*/
-
-.visualbox {
-  background-color: gainsboro;
-  border-style: dotted;
-  border-color: lightgray;
-  border-width: 5px;
-  margin: 10px;
-}
-.adminPreview{
-  background-color: red;
-}
-
-/* DANIEL BLOB END */

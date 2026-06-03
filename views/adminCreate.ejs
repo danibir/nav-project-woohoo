@@ -2,21 +2,26 @@
 <%- include('./partials/navigation') %>
 <%- include('./partials/background-design.ejs') %>
 
-<section class="full-page">
+<section class="full-page adminCreatePage">
+    <link rel="stylesheet" href="/css/adminConfig.css">
+
     <input type="hidden" id="data-data" name="data-data" value='<%- JSON.stringify(data)%>' %>
 
-    <div class="center flexcol">
-        <div class="flexcol visualbox">
-            <form action="/admin/create" method="post">
-                <input type="url" name="url">
-                <br>
-                <br>
-                
-                <%- include('./partials/anysearch.ejs', { datalist: data, array: [], name: "data", require: 'any' }) %>
-            
-                <button>Godkjenn</button>
-            </form>
-        </div>
+    <div>
+        <form class="adminForm" action="/admin/create" method="post">
+            <div class="adminFormInput">
+                <div class="adminFormInpBox">
+                    <label for="url"><h3>RDF url:</h3></label>
+                    <input type="url" name="url" id="url">                    
+                </div>
+
+                <div class="adminFormInpBox">
+                    <%- include('./partials/anysearch.ejs', { datalist: data, array: [], name: "data", require: 'any' }) %>                    
+                </div>
+            </div>
+
+            <button class="adminFormButton">Godkjenn</button>
+        </form>
     </div>
 
 <%- include('./partials/foot') %>
