@@ -126,6 +126,13 @@ arrows.forEach((arrow) => {
   });
 });
 
+//Filer arrow animiation
+const arrow = document.querySelector('.downArrow');
+
+arrow.addEventListener('click', () => {
+  arrow.classList.toggle('rotated');
+});
+
 // Filter Result
 function filterResults() {
   const selectedFilters = Array.from(document.querySelectorAll(".realCheckbox"))

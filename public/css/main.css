@@ -105,6 +105,16 @@ body {
   align-items: center;
 }
 
+.downArrow {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.downArrow.rotated {
+  transform: rotate(-180deg);
+}
+
 .menuBttn {
   display: flex;
   align-items: center;
