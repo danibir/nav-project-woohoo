@@ -105,6 +105,16 @@ body {
   align-items: center;
 }
 
+.downArrow {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.downArrow.rotated {
+  transform: rotate(-180deg);
+}
+
 .menuBttn {
   display: flex;
   align-items: center;
@@ -524,17 +534,3 @@ footer {
 .scrollLeftArrow2 {
   transform: rotate(180deg);
 }
-/* DANIEL BLOB (! TEMPORARY TAGS, PLEASE REPLACE ELEMENTS THAT USE THESE !)*/
-
-.visualbox {
-  background-color: gainsboro;
-  border-style: dotted;
-  border-color: lightgray;
-  border-width: 5px;
-  margin: 10px;
-}
-.adminPreview{
-  background-color: red;
-}
-
-/* DANIEL BLOB END */

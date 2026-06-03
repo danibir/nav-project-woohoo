@@ -4,8 +4,9 @@
 
 
 <section id="<%= name %>">
+    <label for="<%= name %>-input"><h3>Tema:</h3></label>
     <input list="brow_<%= name %>" id="<%= name %>-input">
-    <Label onclick="addViaInput('<%= name %>', '<%= require %>')" class="searchbarButton">Submit</Label>
+    <label onclick="addViaInput('<%= name %>', '<%= require %>')" class="searchbarButton">Legg til</label>
     <datalist id="brow_<%= name %>">
         <% console.log(datalist) %>
         <% for( let a = 0; a < datalist.length; a++ ) { %>

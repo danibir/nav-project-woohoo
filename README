@@ -1,6 +1,47 @@
-NAV PROJECT
+# NAV Datakatalog
 
-11/26/2025
+## Beskrivelse
 
-Yo yo yo dette er nav projekt
-Lorem ipsum
+NAV Datakatalog er en applikasjon som gjør det enkelt å finne informasjon og data relatert til NAV. Brukere kan søke etter relevante datasett og benytte ulike filtre for å raskt finne informasjonen de trenger.
+
+Applikasjonen har også en administratordel der administratorer kan legge til og administrere URL-er og datakilder. For å sikre at kun autoriserte brukere får tilgang til administrasjonsfunksjonene, kreves innlogging med en hemmelig nøkkel (secret key).
+
+## Hvorfor jeg bygde prosjektet
+
+Målet med prosjektet var å samle relevant NAV-data på ett sted og gjøre det enklere å søke, filtrere og administrere informasjon. Dette gir en mer effektiv måte å finne frem til nødvendige data og ressurser.
+
+## Funksjoner
+
+* Søke etter NAV-relaterte data
+* Filtrere søkeresultater for enklere navigasjon
+* Administratortilgang for å legge til nye URL-er og datakilder
+* Innlogging med secret key for sikker tilgang
+
+## Installasjon
+
+```bash
+git clone <repo-url>
+cd <project-name>
+npm install
+```
+
+### Start applikasjonen
+
+```bash
+node app.js
+```
+
+## Teknologier
+
+* Node.js
+* Express.js
+* HTML
+* CSS
+* JavaScript
+
+## Fremtidige forbedringer
+
+* Bedre autentisering og brukerhåndtering
+* Flere filtermuligheter
+* Forbedret brukergrensesnitt
+* Automatisk validering av datakilder

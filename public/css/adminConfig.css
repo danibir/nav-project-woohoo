@@ -1,3 +1,4 @@
+/*Admin menu*/
 .adminConfigPage{
   display: flex;
   flex-grow: 1;
@@ -95,4 +96,95 @@
     padding: 10px;
     text-decoration: solid;
     color: var(--red);
+}
+
+/*Admin create*/
+.adminCreatePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.adminForm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.adminFormInput {
+    background-color: var(--white);
+    border: var(--dark-blue) 2px solid;
+    border-radius: 3px;
+    width: 60%;
+    margin: 0 auto;
+    align-items: center;
+    height: 60%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.adminFormInpBox {
+    width: 90%;
+}
+
+.adminFormInput input {
+    width: 90%;
+    height: 40px;
+    font-size: 1rem;
+    border: var(--dark-blue) 1px solid;
+}
+
+.adminFormButton {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: var(--midnight-blue) 1px solid;
+    border-radius: 3px;
+    width: 200px;
+    font-size: 1.3rem;
+    padding: 10px;
+    margin: 10px;
+}
+
+.adminFormButtonDel {
+    background-color: var(--red);
+}
+
+.adminFormButton:hover {
+    cursor: pointer;
+    background-color: var(--blue);
+    color: var(--midnight-blue);
+}
+
+.adminFormButtonDel:hover {
+    background-color: #a20000a8;
+}
+
+#data li {
+    list-style-type: none;
+    margin: 10px 0;
+    display: flex;
+    gap: 20px;
+}
+
+#data li:hover {
+    cursor: pointer;
+}
+
+.searchbarItem {
+    background-color: var(--blue);
+    width: fit-content;
+    padding: 10px;
+    border: var(--midnight-blue) 1px solid;
+    border-radius: 3px;
+    color: var(--midnight-blue);
+}
+
+.searchbarItem::marker {
+    display: none;
 }
