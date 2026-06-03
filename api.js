@@ -42,6 +42,6 @@ db.connectToMongoDb()
     app.use('/', router_api)
 
     app.listen(4000, () => {
-        console.log('Server is running on port 4000 and on', os.hostname())
+        console.log('API is running on port 4000 and on', os.hostname())
     })  
 })

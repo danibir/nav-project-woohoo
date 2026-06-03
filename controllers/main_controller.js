@@ -25,10 +25,13 @@ const index_render = async (req, res) => {
 
 const findData_render = async (req, res) => {
   res.locals.metatitle = "Finn data";
-  const query = req.query.search || "";
+  let query = req.query.search || "";
   const sort = req.query.sort || "";
+
+  let url = req.originalUrl
+  
   if (!req.isDBConnected) {
-    return res.render("findData", { data: [], sort });
+    return res.render("findData", { data: [], sort, url: req, page: NaN, pagecount: 0 });
   }
 
   let data = await helper.searchQuery(Rdf, query);
@@ -51,12 +54,14 @@ const findData_render = async (req, res) => {
   }
   // For "Relevanse", no sorting applied - it relies on MongoDB's default order (insertion order or relevance based on the query).
   // page logic
-  const page = 0 // use this to pick page // assign it with a parameter or something
+  const page = req.query.page || 1
   const pagesize = 5
   const pagecount = Math.ceil(data.length / pagesize) //max amount of pages
-  data = data.slice(0 + page * pagesize, pagesize + page * pagesize)
-  res.render("findData", { data, sort, pagecount });
-};
+  const pagestart = (page - 1) * pagesize
+  const pageend = page * pagesize
+  data = data.slice(pagestart, pageend)
+  res.render("findData", { data, sort, url, page, pagecount });
+}
 
 const rdf_render = async (req, res) => {
   res.locals.metatitle = "rdf...";

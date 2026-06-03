@@ -6,9 +6,16 @@ const helper = require('../handlers/helperware')
 const index_get = async (req, res) => {
     res.locals.metatitle = "Database"
     const query = req.query.search || ""
-    const data = await helper.searchQuery(Rdf, query)
+    let data = await helper.searchQuery(Rdf, query)
 
-    res.render("adminMenu", { rdfdata: data })
+    const page = req.query.page || 1
+    const pagesize = 5
+    const pagecount = Math.ceil(data.length / pagesize) //max amount of pages
+    const pagestart = (page - 1) * pagesize
+    const pageend = page * pagesize
+    data = data.slice(pagestart, pageend)
+
+    res.render("adminMenu", { rdfdata: data, url: req.originalUrl, page, pagecount })
 }
 const create_get = async (req, res) => {
     res.locals.metatitle = "Legg til registering"
