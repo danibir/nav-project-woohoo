@@ -31,7 +31,7 @@
                     <div class="detailBoxInfo">
                         <h3>URI:</h3>
                         <% if(rdfdata.primaryTopic) { %>
-                                <a href="<%= rdfdata.primaryTopic.object %>"><%= rdfdata.primaryTopic.object %></a>
+                                <a class="overview-URL" href="<%= rdfdata.primaryTopic.object %>"><%= rdfdata.primaryTopic.object %></a>
                         <% } else { %>
                                 <p class="unavailable">Ikke oppgitt</p>
                         <% } %>

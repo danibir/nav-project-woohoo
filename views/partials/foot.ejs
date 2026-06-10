@@ -1,22 +1,24 @@
 <footer>
     <div class="footer-content">
         <div class="footer-section about">
-            <h3>Om NAV</h3>
+            <img src="/img/nav-logo-white.png" alt="nav logo">
             <p>Arbeids- og velferdsetaten (NAV) er en samlet etat for arbeid, velferd og pensjon.</p>
         </div>
 
         <div class="footer-section kontakt">
             <h3>Kontakt</h3>
-            <p>Telefon: 55 55 33 33</p>
-            <p>Åpent: Mandag-Fredag 09:00-15:30</p>
+                <p><strong>Telefon:</strong></p>
+                <p>55 55 33 33</p>
+                <p><strong>Åpent:</strong></p>
+                <p>Mandag-Fredag 09:00-15:30</p>
         </div>
 
         <div class="footer-section lenker">
             <h3>Nyttige lenker</h3>
             <ul>
-                <li><a href="https://www.nav.no">NAV.no</a></li>
-                <li><a href="https://www.nav.no/en">NAV.no - English</a></li>
-                <li><a href="https://www.nav.no/arbeidsgiver">For arbeidsgivere</a></li>
+                <li><a target="_blank" href="https://www.nav.no">NAV.no</a></li>
+                <li><a target="_blank" href="https://www.nav.no/en">NAV.no - English</a></li>
+                <li><a target="_blank" href="https://www.nav.no/arbeidsgiver">For arbeidsgivere</a></li>
             </ul>
         </div>
         
@@ -25,7 +27,7 @@
             <ul>
                 <% if (navItems.includes('authed')) { %>
                     <li><a href="/log-out">Logg ut</a></li>
-                    <li><a href="/admin">Legg til datasett</a></li>
+                    <li><a href="/admin/create">Legg til datasett</a></li>
                 <% } else { %>
                     <li><a href="/sign-in">Logg inn</a></li>
                     </li>

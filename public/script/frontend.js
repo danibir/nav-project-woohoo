@@ -155,20 +155,16 @@ resetBtn.addEventListener("click", () => {
 const arrows = document.querySelectorAll(".downArrow");
 arrows.forEach((arrow) => {
   arrow.addEventListener("click", () => {
-    let parent = arrow.closest(".filterOption");
-    let next = parent.nextElementSibling;
+    const parent = arrow.closest(".filterOption");
+    let next = parent?.nextElementSibling;
 
     while (next && next.classList.contains("secondaryOption")) {
       next.classList.toggle("hidden");
       next = next.nextElementSibling;
     }
-  });
-});
 
-// Arrow animation
-const arrow = document.querySelector('.downArrow');
-arrow.addEventListener('click', () => {
-  arrow.classList.toggle('rotated');
+    arrow.classList.toggle("rotated");
+  });
 });
 
 // Filter Result

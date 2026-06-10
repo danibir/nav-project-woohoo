@@ -37,6 +37,13 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
+    gap: 30px;
+}
+
+.overview-URL {
+    display: flex;
+    width: fit-content;
+    text-align: right;
 }
 
 .detailBox a {
