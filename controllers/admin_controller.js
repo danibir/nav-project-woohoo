@@ -25,14 +25,24 @@ const create_get = async (req, res) => {
 }
 
 const create_post = async (req, res) => {
-    const data = await rdf.getRDF(req.body.url)
-    if (!!data) {
-        await insert.addToDb(req.body.url, req.body["data-item"])
-        res.redirect('/admin') 
-    } else {
-        res.json('url invalid')
+    if(!req.body.url || req.body.url === '') {
+        const data = await get_tags()
+        res.locals.error = 'Ugyldig URL, vennligst prøv igjen.';
+        return res.render('adminCreate', { data });
     }
+    
+    try {
+        const data = await rdf.getRDF(req.body.url)
 
+        if (!!data) {
+            await insert.addToDb(req.body.url, req.body["data-item"])
+            res.redirect('/admin') 
+        } else {
+            res.json('url invalid')
+        }        
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 const edit_get = async (req, res) => {

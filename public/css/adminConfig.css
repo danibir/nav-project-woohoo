@@ -123,10 +123,12 @@
     width: 60%;
     margin: 0 auto;
     align-items: center;
-    height: 60%;
+    height: fit-content;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    padding-bottom: 50px;
 }
 
 .adminFormInpBox {
