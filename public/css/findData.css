@@ -205,3 +205,35 @@
   margin: 0;
   height: fit-content;
 }
+
+.removeTag {
+  margin: 10px;
+}
+.activeTag {
+  width: 100%;
+}
+.activeTag button{
+  margin: 10px;
+  width: 100%;
+  font-size: 0.8rem;
+  background-color: var(--blue);
+  border: var(--midnight-blue) 1px solid;
+  border-radius: 3px;
+  color: var(--midnight-blue);
+  display: flex;
+  flex-direction: row;
+}
+.activeTag h2 {
+  font-weight: 100;
+}
+.activeTagLeft {
+  justify-content: left;
+  text-align: left;
+  width: 100%;
+}
+.activeTagRight {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-right: 10px;
+}
