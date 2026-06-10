@@ -7,6 +7,7 @@ const index_get = async (req, res) => {
     res.locals.metatitle = "Database"
     const query = req.query.search || ""
     let data = await helper.searchQuery(Rdf, query)
+    data.reverse()
 
     const page = req.query.page || 1
     const pagesize = 5
