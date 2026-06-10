@@ -1,12 +1,18 @@
 // Dropdown Menu
-document.querySelector(".menuBttn").addEventListener("click", function () {
-  document.querySelector(".menuDropdown").classList.toggle("active");
-});
+const menuButton = document.querySelector(".menuBttn");
+const menuDropdown = document.querySelector(".menuDropdown");
+
+if (menuButton && menuDropdown) {
+  menuButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    menuDropdown.classList.toggle("active");
+  });
+}
+
 // Close dropdown when clicking outside
 document.addEventListener("click", function (event) {
-  const dropdown = document.querySelector(".menuDropdown");
-  if (!dropdown.contains(event.target)) {
-    dropdown.classList.remove("active");
+  if (menuDropdown && !menuDropdown.contains(event.target)) {
+    menuDropdown.classList.remove("active");
   }
 });
 
@@ -16,16 +22,12 @@ document.addEventListener("click", function (event) {
 const filterTabs = document.querySelectorAll(".searchFilter li");
 filterTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    // remove active class from all
     filterTabs.forEach((t) => t.classList.remove("activeSort"));
-
-    // add active to clicked
     tab.classList.add("activeSort");
 
     const filterText = tab.innerText.trim();
     console.log("Selected filter:", filterText);
 
-    // TODO: call your filtering function here
     filterResults();
   });
 });
