@@ -26,6 +26,7 @@ const create_get = async (req, res) => {
 const create_post = async (req, res) => {
     if(!req.body.url || req.body.url === '') {
         const data = await get_tags()
+        res.locals.metatitle = "Legg til registering";
         res.locals.error = 'Ugyldig URL, vennligst prøv igjen.';
         return res.render('adminCreate', { data });
     }
