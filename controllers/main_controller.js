@@ -31,7 +31,7 @@ const findData_render = async (req, res) => {
   let url = req.originalUrl
   
   if (!req.isDBConnected) {
-    return res.render("findData", { data: [], sort, url: req, page: NaN, pagecount: 0 });
+    return res.render("findData", { data: [], sort, url: "", page: NaN, pagecount: 0 });
   }
 
   let data = await helper.searchQuery(Rdf, query);
