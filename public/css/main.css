@@ -403,6 +403,11 @@ footer {
   margin-top: 5px;
 }
 
+footer img {
+  width: 100px;
+  margin-top: 17px;
+}
+
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
